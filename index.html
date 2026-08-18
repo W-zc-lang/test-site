@@ -36,6 +36,22 @@
       background: rgba(255, 255, 255, 0.2);
       font-size: 13px;
     }
+    .dl {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 12px 28px;
+      border-radius: 999px;
+      background: #fff;
+      color: #0f6e56;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .dl:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    }
   </style>
 </head>
 <body>
@@ -44,6 +60,7 @@
     <p>这只是一个用于验证 GitHub Pages 部署流程的示例页面。</p>
     <p>几行测试文字，部署成功就说明整条链路跑通了。</p>
     <span class="tag">Deploy test · GitHub Pages</span>
+    <div><a class="dl" href="sample.txt" download>下载示例文件</a></div>
   </div>
 </body>
 </html>
