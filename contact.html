@@ -42,7 +42,7 @@
   footer a{color:var(--accent)}
   .doc .box.tip{background:var(--warn-bg);border-color:#f5dca0}
   .doc .box.tip h3{color:var(--warn)}
-  .reward-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+  .reward-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:14px}
   .reward-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 14px;text-align:center;box-shadow:0 4px 14px rgba(0,0,0,.04)}
   .reward-card h4{font-size:14px;color:var(--txt);margin-bottom:10px;font-weight:600}
   .qr{width:100%;aspect-ratio:1/1;background:var(--bg);border:1px dashed var(--line);border-radius:8px;display:flex;align-items:center;justify-content:center;padding:8px;overflow:hidden}
@@ -141,10 +141,6 @@
           <div class="qr"><img src="assets/wechat-reward.png" alt="微信赞赏二维码" onerror="this.style.display='none'"><span class="qr-tip">将你的微信赞赏二维码命名为 <code>wechat-reward.png</code> 放进 <code>assets/</code> 目录即可自动显示</span></div>
         </div>
         <div class="reward-card">
-          <h4>支付宝赏金</h4>
-          <div class="qr"><img src="assets/alipay-reward.png" alt="支付宝收款二维码" onerror="this.style.display='none'"><span class="qr-tip">将你的支付宝收款码命名为 <code>alipay-reward.png</code> 放进 <code>assets/</code> 目录即可自动显示</span></div>
-        </div>
-        <div class="reward-card">
           <h4>爱发电</h4>
           <p style="font-size:13px;color:var(--sub);margin-bottom:4px">长期支持可走爱发电主页</p>
           <a class="afdian-btn" href="https://afdian.com/a/你的ID" target="_blank" rel="noopener">❤ 去爱发电</a>
@@ -153,7 +149,7 @@
       </div>
       <div class="box tip" style="margin-top:16px">
         <h3>📌 怎么填</h3>
-        <p>1）微信 / 支付宝：在 <code>test-site/assets/</code> 目录放入对应二维码图片（建议 240×240 以上、清晰）。<br>2）爱发电：注册 <a href="https://afdian.com" target="_blank" rel="noopener">afdian.com</a> 后，把按钮链接里的「你的ID」改成你自己的。<br>3）不填也不影响站点，只是打赏区显示占位提示。</p>
+        <p>1）微信赞赏：在 <code>test-site/assets/</code> 目录放入微信赞赏二维码图片 <code>wechat-reward.png</code>（建议 240×240 以上、清晰）。<br>2）爱发电：注册 <a href="https://afdian.com" target="_blank" rel="noopener">afdian.com</a> 后，把按钮链接里的「你的ID」改成你自己的。<br>3）不填也不影响站点，只是打赏区显示占位提示。</p>
       </div>
     </div>
   </main>
