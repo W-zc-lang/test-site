@@ -107,6 +107,17 @@
   .card-action .btn:hover{background:var(--accent);color:#fff;box-shadow:0 3px 10px rgba(64,158,255,.3);}
   .empty{text-align:center;padding:60px 20px;color:var(--light);font-size:14px;display:none;}
   .empty.show{display:block;}
+  /* Hero 下载按钮 */
+  .hero-btn{display:inline-flex;align-items:center;gap:8px;margin-top:16px;background:#fff;color:#2f7fe0;
+    font-weight:600;font-size:14px;padding:11px 22px;border-radius:12px;text-decoration:none;
+    box-shadow:0 6px 16px rgba(0,0,0,.18);transition:.2s;}
+  .hero-btn svg{width:17px;height:17px;}
+  .hero-btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,0,0,.26);color:#1f6fd0;}
+  /* 页脚下载按钮 */
+  .dl-btn{display:inline-flex;align-items:center;gap:5px;background:var(--accent-light);color:var(--accent);
+    border:1px solid var(--accent-light);border-radius:8px;padding:5px 12px;font-size:12px;text-decoration:none;transition:.15s;}
+  .dl-btn svg{width:14px;height:14px;}
+  .dl-btn:hover{background:var(--accent);color:#fff;}
   footer{padding:20px 24px;border-top:1px solid var(--line);font-size:12px;color:var(--light);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
   footer a{color:var(--accent);}
   @media(max-width:900px){
@@ -190,6 +201,10 @@
       <div class="hero-text">
         <h2>免费 AI 工具实测库</h2>
         <p>不花一分钱，把真正好用的 AI 工具挑出来给你。每款都附具体玩法与避坑提醒，零基础也能立刻上手。</p>
+        <a class="hero-btn" href="ai-tools-list.txt" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          下载完整工具清单 (.txt)
+        </a>
       </div>
       <div class="stats">
         <div class="stat"><b>10+</b><span>已实测工具</span></div>
