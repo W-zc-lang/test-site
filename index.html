@@ -6,6 +6,7 @@
 <title>免费AI工具实测库 | 2026 好用不花钱的 AI 工具清单</title>
 <meta name="description" content="实测豆包、DeepSeek、Kimi、通义万相、剪映等 10+ 款永久免费 AI 工具，按写作、图像、视频、办公分类，附带具体使用步骤与避坑提醒。零基础也能上手。" />
 <meta name="keywords" content="免费AI工具,AI工具实测,豆包,DeepSeek,Kimi,通义万相,剪映,Gemini,2026 AI,AI写作,AI绘图,白嫖AI" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
 </head>
 <body>
 <style>
@@ -16,7 +17,7 @@
     --ok:#67c23a; --ok-bg:#f0f9eb;
     --warn:#e6a23c; --warn-bg:#fdf6ec;
     --danger:#f56c6c; --danger-bg:#fef0f0;
-    --radius:10px;
+    --radius:12px; --shadow:0 8px 24px rgba(0,0,0,.07);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,sans-serif;
@@ -24,68 +25,89 @@
   a{color:inherit;text-decoration:none}
   button{font-family:inherit;cursor:pointer;border:none;background:transparent;}
   /* 侧边栏 */
-  .sidebar{position:fixed;left:0;top:0;width:210px;height:100vh;background:var(--sidebar);
-    border-right:1px solid var(--line);display:flex;flex-direction:column;padding:16px 0;z-index:100;}
-  .brand{display:flex;align-items:center;gap:10px;padding:0 20px 18px;font-weight:700;font-size:16px;color:var(--txt);}
-  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);}
-  .nav-item{display:flex;align-items:center;gap:12px;padding:11px 20px;margin:2px 12px;
-    border-radius:var(--radius);font-size:14px;color:var(--sub);transition:.15s;}
+  .sidebar{position:fixed;left:0;top:0;width:212px;height:100vh;background:var(--sidebar);
+    border-right:1px solid var(--line);display:flex;flex-direction:column;padding:18px 0;z-index:100;}
+  .brand{display:flex;align-items:center;gap:11px;padding:0 14px 20px;font-weight:700;font-size:16px;color:var(--txt);}
+  .brand .logo{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,#409eff,#66b1ff);
+    display:flex;align-items:center;justify-content:center;color:#fff;flex:none;box-shadow:0 5px 12px rgba(64,158,255,.35);}
+  .brand .logo svg{width:19px;height:19px;}
+  .nav-item{position:relative;display:flex;align-items:center;gap:12px;padding:11px 20px;margin:2px 12px;
+    border-radius:10px;font-size:14px;color:var(--sub);transition:.18s;}
   .nav-item:hover{background:#f5f7fa;color:var(--txt);}
   .nav-item.active{background:var(--accent-light);color:var(--accent);font-weight:600;}
+  .nav-item.active::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);
+    width:3px;height:18px;border-radius:3px;background:var(--accent);}
   .nav-item svg{width:18px;height:18px;opacity:.85;}
   .nav-group{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);}
-  .nav-label{font-size:12px;color:var(--light);padding:6px 20px;text-transform:uppercase;letter-spacing:.5px;}
+  .nav-label{font-size:12px;color:var(--light);padding:6px 22px;text-transform:uppercase;letter-spacing:.5px;}
   /* 主区域 */
-  .main{margin-left:210px;min-height:100vh;display:flex;flex-direction:column;}
-  .topbar{height:60px;background:#fff;border-bottom:1px solid var(--line);display:flex;
-    align-items:center;justify-content:space-between;padding:0 24px;position:sticky;top:0;z-index:90;}
+  .main{margin-left:212px;min-height:100vh;display:flex;flex-direction:column;}
+  .topbar{height:60px;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+    display:flex;align-items:center;justify-content:space-between;padding:0 24px;position:sticky;top:0;z-index:90;}
   .topbar h1{font-size:18px;font-weight:600;}
   .topbar-actions{display:flex;align-items:center;gap:12px;}
   .search{position:relative;}
-  .search input{width:240px;height:34px;border:1px solid var(--line);border-radius:var(--radius);
-    padding:0 12px 0 34px;font-size:13px;outline:none;transition:.15s;}
-  .search input:focus{border-color:var(--accent);}
-  .search svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--light);}
+  .search input{width:248px;height:36px;border:1px solid var(--line);border-radius:20px;
+    padding:0 14px 0 36px;font-size:13px;outline:none;transition:.18s;background:#fff;}
+  .search input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(64,158,255,.15);}
+  .search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--light);}
   .btn{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 14px;border:1px solid var(--line);
-    border-radius:var(--radius);background:#fff;font-size:13px;color:var(--sub);transition:.15s;}
-  .btn:hover{border-color:var(--accent);color:var(--accent);}
+    border-radius:10px;background:#fff;font-size:13px;color:var(--sub);transition:.18s;}
+  .btn:hover{border-color:var(--accent);color:var(--accent);box-shadow:0 2px 8px rgba(64,158,255,.12);}
   .btn.active{background:var(--accent-light);border-color:var(--accent);color:var(--accent);font-weight:600;}
   .content{flex:1;padding:24px;}
+  /* Hero */
+  .hero{background:linear-gradient(135deg,#409eff,#5aa6ff);border-radius:16px;padding:26px 28px;color:#fff;
+    margin-bottom:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+    box-shadow:0 12px 30px rgba(64,158,255,.28);position:relative;overflow:hidden;}
+  .hero::after{content:"";position:absolute;right:-40px;top:-40px;width:180px;height:180px;border-radius:50%;
+    background:rgba(255,255,255,.12);}
+  .hero-text{position:relative;z-index:1;}
+  .hero h2{font-size:23px;font-weight:700;letter-spacing:.3px;}
+  .hero p{margin-top:8px;opacity:.93;font-size:14px;max-width:560px;line-height:1.7;}
+  .hero .stats{display:flex;gap:12px;position:relative;z-index:1;}
+  .hero .stat{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.18);border-radius:12px;
+    padding:12px 18px;text-align:center;min-width:78px;backdrop-filter:blur(4px);}
+  .hero .stat b{display:block;font-size:21px;font-weight:700;}
+  .hero .stat span{font-size:12px;opacity:.92;}
   .toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;}
   .toolbar .count{font-size:13px;color:var(--sub);}
-  .view-toggle{display:flex;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
+  .view-toggle{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;}
   .view-toggle .btn{border:none;border-radius:0;height:32px;}
   .view-toggle .btn+.btn{border-left:1px solid var(--line);}
   /* 卡片 */
   .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;}
   .cards.list{grid-template-columns:1fr;}
   .cards.list .card{display:flex;align-items:center;gap:20px;padding:16px 20px;}
-  .cards.list .card-body{flex:1;display:grid;grid-template-columns:140px 1fr 1fr 120px;align-items:center;gap:20px;}
+  .cards.list .card-body{flex:1;display:grid;grid-template-columns:170px 1fr 1fr 130px;align-items:center;gap:20px;}
   .cards.list .card h3{margin-bottom:0;}
   .cards.list .card p{flex:none;margin:0;}
   .cards.list .card .meta{flex:none;margin:0;}
   .cards.list .card .card-action{align-self:auto;margin-top:0;}
   .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-    padding:18px;display:flex;flex-direction:column;transition:.15s;}
-  .card:hover{box-shadow:0 4px 16px rgba(0,0,0,.06);transform:translateY(-1px);}
-  .card-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;}
+    padding:18px;display:flex;flex-direction:column;transition:.2s;position:relative;overflow:hidden;}
+  .card:hover{box-shadow:var(--shadow);transform:translateY(-3px);border-color:#c6d8ef;}
+  .card-header{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:14px;}
+  .card-title{display:flex;align-items:center;gap:12px;}
+  .badge{width:40px;height:40px;border-radius:11px;display:inline-flex;align-items:center;justify-content:center;
+    font-weight:700;font-size:17px;color:#fff;flex:none;box-shadow:0 4px 10px rgba(0,0,0,.12);}
   .card h3{font-size:16px;font-weight:600;}
   .card h3 small{font-size:12px;color:var(--light);font-weight:400;margin-left:6px;}
-  .tag{font-size:11px;padding:2px 8px;border-radius:4px;font-weight:600;}
+  .tag{font-size:11px;padding:3px 9px;border-radius:6px;font-weight:600;white-space:nowrap;}
   .tag.free{background:var(--ok-bg);color:var(--ok);}
   .tag.tool{background:var(--danger-bg);color:var(--danger);}
   .tag.limit{background:var(--warn-bg);color:var(--warn);}
   .card-meta{display:grid;grid-template-columns:max-content 1fr;gap:6px 14px;font-size:13px;color:var(--sub);margin-bottom:14px;}
   .card-meta dt{color:var(--light);font-weight:400;}
   .card-meta dd{color:var(--txt);}
-  .card-meta dd code{background:#f5f7fa;padding:1px 6px;border-radius:4px;font-family:inherit;font-size:12px;}
+  .card-meta dd code{background:#f5f7fa;padding:1px 6px;border-radius:5px;font-family:inherit;font-size:12px;}
   .card p{font-size:13px;color:var(--sub);flex:1;margin-bottom:14px;line-height:1.7;}
   .card-action{align-self:flex-end;margin-top:auto;}
   .card-action .btn{color:var(--accent);border-color:var(--accent-light);background:var(--accent-light);}
-  .card-action .btn:hover{background:var(--accent);color:#fff;}
+  .card-action .btn:hover{background:var(--accent);color:#fff;box-shadow:0 3px 10px rgba(64,158,255,.3);}
   .empty{text-align:center;padding:60px 20px;color:var(--light);font-size:14px;display:none;}
   .empty.show{display:block;}
-  footer{padding:20px 24px;border-top:1px solid var(--line);font-size:12px;color:var(--light);display:flex;justify-content:space-between;}
+  footer{padding:20px 24px;border-top:1px solid var(--line);font-size:12px;color:var(--light);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
   footer a{color:var(--accent);}
   @media(max-width:900px){
     .sidebar{transform:translateX(-100%);}
@@ -94,14 +116,18 @@
   }
   @media(max-width:640px){
     .topbar{flex-wrap:wrap;height:auto;padding:12px 16px;gap:10px;}
-    .search input{width:160px;}
+    .search input{width:170px;}
     .content{padding:16px;}
+    .hero{padding:22px 18px;}
     .cards.list .card,.cards.list .card-body{display:block;}
   }
 </style>
 
 <div class="sidebar">
-  <div class="brand"><span class="dot"></span>AI 工具管理台</div>
+  <div class="brand">
+    <span class="logo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6z"/><circle cx="18" cy="5" r="1.3"/></svg></span>
+    AI 工具管理台
+  </div>
   <a class="nav-item active" href="index.html">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
     控制面板
@@ -160,6 +186,18 @@
   </header>
 
   <main class="content">
+    <div class="hero">
+      <div class="hero-text">
+        <h2>免费 AI 工具实测库</h2>
+        <p>不花一分钱，把真正好用的 AI 工具挑出来给你。每款都附具体玩法与避坑提醒，零基础也能立刻上手。</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>10+</b><span>已实测工具</span></div>
+        <div class="stat"><b>0 元</b><span>全部免费</span></div>
+        <div class="stat"><b>4 类</b><span>按需分类</span></div>
+      </div>
+    </div>
+
     <div class="toolbar">
       <div class="count">共 <span id="count">8</span> 个工具 · 全部已实测</div>
     </div>
@@ -167,7 +205,10 @@
     <div class="cards" id="cards">
       <article class="card" data-keywords="豆包 字节 写作 文案 小红书 口播 简历 免费">
         <div class="card-header">
-          <h3>豆包 <small>字节跳动</small></h3>
+          <div class="card-title">
+            <span class="badge" style="background:linear-gradient(135deg,#409eff,#66b1ff)">豆</span>
+            <h3>豆包 <small>字节跳动</small></h3>
+          </div>
           <span class="tag free">永久免费</span>
         </div>
         <dl class="card-meta">
@@ -181,7 +222,10 @@
 
       <article class="card" data-keywords="DeepSeek 深度求索 推理 长文 代码 免费">
         <div class="card-header">
-          <h3>DeepSeek</h3>
+          <div class="card-title">
+            <span class="badge" style="background:linear-gradient(135deg,#4a6cf7,#6f8cff)">D</span>
+            <h3>DeepSeek</h3>
+          </div>
           <span class="tag free">永久免费</span>
         </div>
         <dl class="card-meta">
@@ -195,7 +239,10 @@
 
       <article class="card" data-keywords="Kimi 月之暗面 长文档 大纲 深度内容 免费">
         <div class="card-header">
-          <h3>Kimi</h3>
+          <div class="card-title">
+            <span class="badge" style="background:linear-gradient(135deg,#8a5cf6,#b07cff)">K</span>
+            <h3>Kimi <small>月之暗面</small></h3>
+          </div>
           <span class="tag free">永久免费</span>
         </div>
         <dl class="card-meta">
@@ -209,7 +256,10 @@
 
       <article class="card" data-keywords="Claude Anthropic 英文 长文 学术 免费">
         <div class="card-header">
-          <h3>Claude</h3>
+          <div class="card-title">
+            <span class="badge" style="background:linear-gradient(135deg,#ef7a7a,#ff9d9d)">C</span>
+            <h3>Claude</h3>
+          </div>
           <span class="tag tool">需网络工具</span>
         </div>
         <dl class="card-meta">
@@ -223,7 +273,10 @@
 
       <article class="card" data-keywords="通义万相 阿里 绘图 封面 头像 海报 免费">
         <div class="card-header">
-          <h3>通义万相 <small>阿里</small></h3>
+          <div class="card-title">
+            <span class="badge" style="background:linear-gradient(135deg,#a85cf6,#c98bff)">万</span>
+            <h3>通义万相 <small>阿里</small></h3>
+          </div>
           <span class="tag free">永久免费</span>
         </div>
         <dl class="card-meta">
@@ -237,7 +290,10 @@
 
       <article class="card" data-keywords="Bing Image Creator DALL-E 绘图 微软 免费">
         <div class="card-header">
-          <h3>Bing Image Creator</h3>
+          <div class="card-title">
+            <span class="badge" style="background:linear-gradient(135deg,#2fa8ff,#5cc8ff)">B</span>
+            <h3>Bing Image Creator</h3>
+          </div>
           <span class="tag tool">需网络工具</span>
         </div>
         <dl class="card-meta">
@@ -251,7 +307,10 @@
 
       <article class="card" data-keywords="剪映 视频 剪辑 AI配音 字幕 图文成片 免费">
         <div class="card-header">
-          <h3>剪映 <small>字节</small></h3>
+          <div class="card-title">
+            <span class="badge" style="background:linear-gradient(135deg,#ff5e8a,#ff8fb0)">剪</span>
+            <h3>剪映 <small>字节</small></h3>
+          </div>
           <span class="tag free">基础免费</span>
         </div>
         <dl class="card-meta">
@@ -265,7 +324,10 @@
 
       <article class="card" data-keywords="Gemini 谷歌 多模态 PDF 图片 联网 免费">
         <div class="card-header">
-          <h3>Gemini <small>谷歌</small></h3>
+          <div class="card-title">
+            <span class="badge" style="background:linear-gradient(135deg,#ff9d3c,#ffc06b)">G</span>
+            <h3>Gemini <small>谷歌</small></h3>
+          </div>
           <span class="tag tool">需网络工具</span>
         </div>
         <dl class="card-meta">
@@ -279,7 +341,10 @@
 
       <article class="card" data-keywords="酷酷百宝盒 微信小程序 图片处理 音视频 办公测算 免费">
         <div class="card-header">
-          <h3>酷酷百宝盒</h3>
+          <div class="card-title">
+            <span class="badge" style="background:linear-gradient(135deg,#15c2c2,#4fe0e0)">酷</span>
+            <h3>酷酷百宝盒</h3>
+          </div>
           <span class="tag free">免费</span>
         </div>
         <dl class="card-meta">

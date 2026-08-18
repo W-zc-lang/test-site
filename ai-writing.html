@@ -6,39 +6,45 @@
 <title>写作对话类 AI 工具实测：豆包 / DeepSeek / Kimi / Claude</title>
 <meta name="description" content="实测豆包、DeepSeek、Kimi、Claude 四款免费写作对话 AI，给出具体使用步骤、适用场景与避坑提醒，帮你挑对工具。" />
 <meta name="keywords" content="豆包,DeepSeek,Kimi,Claude,AI写作,免费AI,AI写文案,长文写作" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
 </head>
 <body>
 <style>
-  :root{--sidebar:#fff;--bg:#f5f7fa;--card:#fff;--line:#e4e7ed;--txt:#303133;--sub:#606266;--light:#909399;--accent:#409eff;--accent-light:#ecf5ff;--ok:#67c23a;--ok-bg:#f0f9eb;--warn:#e6a23c;--warn-bg:#fdf6ec;--danger:#f56c6c;--danger-bg:#fef0f0;--radius:10px}
+  :root{--sidebar:#fff;--bg:#f5f7fa;--card:#fff;--line:#e4e7ed;--txt:#303133;--sub:#606266;--light:#909399;--accent:#409eff;--accent-light:#ecf5ff;--ok:#67c23a;--ok-bg:#f0f9eb;--warn:#e6a23c;--warn-bg:#fdf6ec;--danger:#f56c6c;--danger-bg:#fef0f0;--radius:12px}
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6}
   a{color:inherit;text-decoration:none}
-  .sidebar{position:fixed;left:0;top:0;width:210px;height:100vh;background:var(--sidebar);border-right:1px solid var(--line);display:flex;flex-direction:column;padding:16px 0;z-index:100}
-  .brand{display:flex;align-items:center;gap:10px;padding:0 20px 18px;font-weight:700;font-size:16px;color:var(--txt)}
-  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
-  .nav-item{display:flex;align-items:center;gap:12px;padding:11px 20px;margin:2px 12px;border-radius:var(--radius);font-size:14px;color:var(--sub);transition:.15s}
+  .sidebar{position:fixed;left:0;top:0;width:212px;height:100vh;background:var(--sidebar);border-right:1px solid var(--line);display:flex;flex-direction:column;padding:18px 0;z-index:100}
+  .brand{display:flex;align-items:center;gap:11px;padding:0 14px 20px;font-weight:700;font-size:16px;color:var(--txt)}
+  .brand .logo{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,#409eff,#66b1ff);display:flex;align-items:center;justify-content:center;color:#fff;flex:none;box-shadow:0 5px 12px rgba(64,158,255,.35)}
+  .brand .logo svg{width:19px;height:19px}
+  .nav-item{position:relative;display:flex;align-items:center;gap:12px;padding:11px 20px;margin:2px 12px;border-radius:10px;font-size:14px;color:var(--sub);transition:.18s}
   .nav-item:hover{background:#f5f7fa;color:var(--txt)}
   .nav-item.active{background:var(--accent-light);color:var(--accent);font-weight:600}
+  .nav-item.active::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:3px;height:18px;border-radius:3px;background:var(--accent)}
   .nav-item svg{width:18px;height:18px;opacity:.85}
   .nav-group{margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
-  .nav-label{font-size:12px;color:var(--light);padding:6px 20px;text-transform:uppercase;letter-spacing:.5px}
-  .main{margin-left:210px;min-height:100vh;display:flex;flex-direction:column}
-  .topbar{height:60px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 24px;position:sticky;top:0;z-index:90}
+  .nav-label{font-size:12px;color:var(--light);padding:6px 22px;text-transform:uppercase;letter-spacing:.5px}
+  .main{margin-left:212px;min-height:100vh;display:flex;flex-direction:column}
+  .topbar{height:60px;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 24px;position:sticky;top:0;z-index:90}
   .topbar h1{font-size:18px;font-weight:600}
   .topbar-actions{display:flex;align-items:center;gap:12px}
-  .btn{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 14px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;font-size:13px;color:var(--sub);transition:.15s}
-  .btn:hover{border-color:var(--accent);color:var(--accent)}
+  .btn{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 14px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:13px;color:var(--sub);transition:.18s}
+  .btn:hover{border-color:var(--accent);color:var(--accent);box-shadow:0 2px 8px rgba(64,158,255,.12)}
   .content{flex:1;padding:24px}
   .page{max-width:1100px;margin:0 auto}
-  .page-head{margin-bottom:20px}
+  .page-head{margin-bottom:22px}
   .page-head h2{font-size:22px;font-weight:600}
-  .page-head p{color:var(--sub);font-size:14px;margin-top:6px;max-width:780px;line-height:1.7}
+  .page-head p{color:var(--sub);font-size:14px;margin-top:8px;max-width:780px;line-height:1.7}
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;align-items:start}
-  .tool-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;scroll-margin-top:80px}
-  .tc-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:12px}
+  .tool-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;scroll-margin-top:80px;transition:.2s}
+  .tool-card:hover{box-shadow:0 8px 24px rgba(0,0,0,.07);transform:translateY(-3px);border-color:#c6d8ef}
+  .tc-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:14px}
+  .tc-title{display:flex;align-items:center;gap:12px}
+  .tc-badge{width:42px;height:42px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;color:#fff;flex:none;box-shadow:0 4px 10px rgba(0,0,0,.12)}
   .tool-card h3{font-size:17px;font-weight:600}
   .tool-card h3 small{font-size:12px;color:var(--light);font-weight:400;margin-left:6px}
-  .tag{font-size:11px;padding:2px 8px;border-radius:4px;font-weight:600;white-space:nowrap}
+  .tag{font-size:11px;padding:3px 9px;border-radius:6px;font-weight:600;white-space:nowrap}
   .tag.free{background:var(--ok-bg);color:var(--ok)}
   .tag.tool{background:var(--danger-bg);color:var(--danger)}
   .tag.limit{background:var(--warn-bg);color:var(--warn)}
@@ -46,7 +52,7 @@
   .tc-body h4{font-size:12px;color:var(--accent);margin:14px 0 6px;letter-spacing:.5px}
   .tc-body ol{padding-left:20px;color:var(--sub);font-size:14px}
   .tc-body li{margin:4px 0;line-height:1.7}
-  .tc-body code{background:#f5f7fa;padding:1px 6px;border-radius:4px;font-family:inherit;font-size:13px;color:var(--txt)}
+  .tc-body code{background:#f5f7fa;padding:1px 6px;border-radius:5px;font-family:inherit;font-size:13px;color:var(--txt)}
   .warn{background:var(--warn-bg);border-left:3px solid var(--warn);padding:10px 14px;border-radius:8px;font-size:13px;color:var(--warn);margin-top:12px;line-height:1.7}
   footer{padding:18px 24px;border-top:1px solid var(--line);font-size:12px;color:var(--light);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
   footer a{color:var(--accent)}
@@ -55,7 +61,10 @@
 </style>
 
 <div class="sidebar">
-  <div class="brand"><span class="dot"></span>AI 工具管理台</div>
+  <div class="brand">
+    <span class="logo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6z"/><circle cx="18" cy="5" r="1.3"/></svg></span>
+    AI 工具管理台
+  </div>
   <a class="nav-item" href="index.html">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
     控制面板
@@ -104,7 +113,7 @@
 
       <div class="grid">
         <article class="tool-card" id="doubao">
-          <div class="tc-head"><h3>豆包 <small>字节跳动</small></h3><span class="tag free">免费</span></div>
+          <div class="tc-head"><div class="tc-title"><span class="tc-badge" style="background:linear-gradient(135deg,#409eff,#66b1ff)">豆</span><h3>豆包 <small>字节跳动</small></h3></div><span class="tag free">免费</span></div>
           <div class="tc-body">
             <p>适合：小红书文案、短视频口播脚本、简历优化、软文。永久免费、无字数限制，手机电脑都能用。</p>
             <h4>3 步上手</h4>
@@ -118,7 +127,7 @@
         </article>
 
         <article class="tool-card" id="deepseek">
-          <div class="tc-head"><h3>DeepSeek</h3><span class="tag free">免费</span></div>
+          <div class="tc-head"><div class="tc-title"><span class="tc-badge" style="background:linear-gradient(135deg,#4a6cf7,#6f8cff)">D</span><h3>DeepSeek</h3></div><span class="tag free">免费</span></div>
           <div class="tc-body">
             <p>适合：脑暴选题、写结构化长文、代码辅助、数据分析思路。推理能力强，中文输出自然。</p>
             <h4>3 步上手</h4>
@@ -132,7 +141,7 @@
         </article>
 
         <article class="tool-card" id="kimi">
-          <div class="tc-head"><h3>Kimi <small>月之暗面</small></h3><span class="tag free">免费</span></div>
+          <div class="tc-head"><div class="tc-title"><span class="tc-badge" style="background:linear-gradient(135deg,#8a5cf6,#b07cff)">K</span><h3>Kimi <small>月之暗面</small></h3></div><span class="tag free">免费</span></div>
           <div class="tc-body">
             <p>适合：读长文档、列大纲、写深度内容、资料总结。长文本承载力优秀，适合"喂一堆资料让它消化"。</p>
             <h4>3 步上手</h4>
@@ -146,7 +155,7 @@
         </article>
 
         <article class="tool-card" id="claude">
-          <div class="tc-head"><h3>Claude <small>Anthropic</small></h3><span class="tag tool">需网络工具</span></div>
+          <div class="tc-head"><div class="tc-title"><span class="tc-badge" style="background:linear-gradient(135deg,#ef7a7a,#ff9d9d)">C</span><h3>Claude <small>Anthropic</small></h3></div><span class="tag tool">需网络工具</span></div>
           <div class="tc-body">
             <p>适合：万字文档总结、合同梳理、论文润色、读书笔记。输出自然、逻辑条理清晰、AI 痕迹弱。</p>
             <h4>3 步上手</h4>
