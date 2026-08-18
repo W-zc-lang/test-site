@@ -1,67 +1,156 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>我的测试网站</title>
-  <style>
-    :root { color-scheme: light dark; }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #185fa5, #0f6e56);
-      color: #fff;
-      padding: 24px;
-    }
-    .card {
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      border-radius: 16px;
-      padding: 40px 48px;
-      max-width: 560px;
-      text-align: center;
-      backdrop-filter: blur(4px);
-    }
-    h1 { font-size: 28px; font-weight: 600; margin-bottom: 16px; }
-    p { font-size: 16px; line-height: 1.7; opacity: 0.92; }
-    .tag {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.2);
-      font-size: 13px;
-    }
-    .dl {
-      display: inline-block;
-      margin-top: 24px;
-      padding: 12px 28px;
-      border-radius: 999px;
-      background: #fff;
-      color: #0f6e56;
-      font-size: 15px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-    .dl:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>免费AI工具实测库 | 2026 好用不花钱的 AI 工具清单</title>
+<meta name="description" content="实测豆包、DeepSeek、Kimi、通义万相、剪映等 10+ 款永久免费 AI 工具，按写作、图像、视频、办公分类，附带具体使用步骤与避坑提醒。零基础也能上手。" />
+<meta name="keywords" content="免费AI工具,AI工具实测,豆包,DeepSeek,Kimi,通义万相,剪映,Gemini,2026 AI,AI写作,AI绘图,白嫖AI" />
 </head>
 <body>
-  <div class="card">
-    <h1>你好，这是我的测试网站</h1>
-    <p>这只是一个用于验证 GitHub Pages 部署流程的示例页面。</p>
-    <p>几行测试文字，部署成功就说明整条链路跑通了。</p>
-    <span class="tag">Deploy test · GitHub Pages</span>
-    <div><a class="dl" href="sample.txt" download>下载示例文件</a></div>
-    <div style="margin-top:14px"><a href="guide.html" style="color:#d6ecff;font-size:14px;text-decoration:none">查看完整教程 →</a></div>
+<style>
+  :root{
+    --bg:#0b1020; --card:#141b30; --line:#27314f;
+    --txt:#e8ecf6; --sub:#9aa6c4; --accent:#6d8bff; --accent2:#9b6bff;
+    --ok:#3ddc97; --warn:#ffb454;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,sans-serif;
+    background:radial-gradient(1200px 600px at 80% -10%,#1b2347 0%,var(--bg) 55%);
+    color:var(--txt);line-height:1.7;padding-bottom:40px}
+  a{color:var(--accent);text-decoration:none}
+  .nav{max-width:1080px;margin:0 auto;display:flex;gap:18px;padding:18px 24px;
+    align-items:center;flex-wrap:wrap}
+  .nav .logo{font-weight:800;font-size:18px;margin-right:auto;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .nav a{color:var(--sub);font-size:14px}
+  .nav a:hover{color:var(--txt)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .hero{padding:48px 24px 30px;text-align:center}
+  .hero h1{font-size:34px;line-height:1.3;margin-bottom:14px}
+  .hero h1 span{background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{color:var(--sub);max-width:640px;margin:0 auto 22px}
+  .cta{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--accent2));
+    color:#fff;padding:12px 26px;border-radius:999px;font-weight:700;
+    box-shadow:0 8px 30px rgba(109,139,255,.35)}
+  .cats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:34px 0 10px}
+  .cat{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:18px;text-align:center;transition:.2s}
+  .cat:hover{transform:translateY(-3px);border-color:var(--accent)}
+  .cat .ic{font-size:26px}
+  .cat h3{font-size:15px;margin:8px 0 4px}
+  .cat p{font-size:12px;color:var(--sub)}
+  .sec-title{font-size:22px;margin:40px 0 16px}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .tool{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:18px;display:flex;flex-direction:column}
+  .tool .top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .tool .badge{font-size:11px;padding:2px 9px;border-radius:999px;
+    background:rgba(61,220,151,.15);color:var(--ok)}
+  .tool .badge.free{background:rgba(109,139,255,.15);color:var(--accent)}
+  .tool h3{font-size:17px}
+  .tool p{font-size:13px;color:var(--sub);flex:1}
+  .tool .meta{font-size:12px;color:var(--warn);margin:10px 0}
+  .tool a.more{font-size:13px;font-weight:600;align-self:flex-start}
+  .dl{background:var(--card);border:1px dashed var(--accent);border-radius:14px;
+    padding:22px;text-align:center;margin:36px 0}
+  .dl h3{font-size:18px;margin-bottom:6px}
+  .dl p{color:var(--sub);font-size:13px;margin-bottom:14px}
+  .dl a{display:inline-block;background:var(--accent);color:#fff;padding:10px 22px;
+    border-radius:999px;font-weight:700}
+  footer{color:var(--sub);font-size:12px;text-align:center;margin-top:40px;
+    border-top:1px solid var(--line);padding-top:20px}
+  @media(max-width:760px){.cats,.grid{grid-template-columns:1fr 1fr}
+    .hero h1{font-size:26px}}
+</style>
+
+<nav class="nav">
+  <span class="logo">免费AI工具实测库</span>
+  <a href="index.html">首页</a>
+  <a href="ai-writing.html">写作对话</a>
+  <a href="ai-image-video.html">图像视频</a>
+  <a href="ai-office.html">办公效率</a>
+  <a href="about.html">关于</a>
+  <a href="contact.html">联系</a>
+</nav>
+
+<header class="hero">
+  <h1>2026 年<span>真正免费</span>的 AI 工具，<br>一篇实测讲清楚怎么用</h1>
+  <p>我们逐个试用豆包、DeepSeek、Kimi、通义万相、剪映等工具，给你具体步骤、适用场景和避坑提醒。不吹不黑，能白嫖就别花钱。</p>
+  <a class="cta" href="ai-writing.html">看实测 →</a>
+</header>
+
+<div class="wrap">
+  <div class="cats">
+    <a class="cat" href="ai-writing.html"><div class="ic">✍️</div><h3>写作 / 对话</h3><p>写文案·长文·报告</p></a>
+    <a class="cat" href="ai-image-video.html"><div class="ic">🎨</div><h3>图像 / 视频</h3><p>AI 绘图·剪辑</p></a>
+    <a class="cat" href="ai-office.html"><div class="ic">🧰</div><h3>办公效率</h3><p>小程序·多模态</p></a>
+    <a class="cat" href="about.html"><div class="ic">📌</div><h3>关于本站</h3><p>怎么选·怎么用</p></a>
   </div>
+
+  <h2 class="sec-title">🔥 热门工具速览</h2>
+  <div class="grid">
+    <div class="tool">
+      <div class="top"><span class="badge free">免费</span><h3>豆包（字节）</h3></div>
+      <p>写小红书文案、口播脚本、简历优化，永久免费无字数限制，手机电脑都能用。</p>
+      <div class="meta">⚠ 输出偏营销腔，发布前手动润色降机器感</div>
+      <a class="more" href="ai-writing.html#doubao">实测步骤 →</a>
+    </div>
+    <div class="tool">
+      <div class="top"><span class="badge free">免费</span><h3>DeepSeek</h3></div>
+      <p>推理强、中文自然，适合脑暴选题、写结构化长文、代码辅助。</p>
+      <div class="meta">⚠ 高峰期偶尔繁忙，可错峰使用</div>
+      <a class="more" href="ai-writing.html#deepseek">实测步骤 →</a>
+    </div>
+    <div class="tool">
+      <div class="top"><span class="badge free">免费</span><h3>Kimi（月之暗面）</h3></div>
+      <p>读长文档、列大纲、写深度内容，长文本承载力优秀。</p>
+      <div class="meta">⚠ 超长文档建议分段投喂</div>
+      <a class="more" href="ai-writing.html#kimi">实测步骤 →</a>
+    </div>
+    <div class="tool">
+      <div class="top"><span class="badge free">免费</span><h3>通义万相（阿里）</h3></div>
+      <p>免费 AI 作图，做封面、头像、海报，每日额度够用，无水印下载。</p>
+      <div class="meta">⚠ 复杂构图需多轮微调关键词</div>
+      <a class="more" href="ai-image-video.html#wanxiang">实测步骤 →</a>
+    </div>
+    <div class="tool">
+      <div class="top"><span class="badge free">免费</span><h3>剪映</h3></div>
+      <p>图文成片、AI 配音、自动字幕，从文案到短视频一站式免费。</p>
+      <div class="meta">⚠ 部分高级素材需会员</div>
+      <a class="more" href="ai-image-video.html#jianying">实测步骤 →</a>
+    </div>
+    <div class="tool">
+      <div class="top"><span class="badge free">免费</span><h3>Gemini（谷歌）</h3></div>
+      <p>多模态，上传图片/PDF 解析、联网搜索、长文总结。</p>
+      <div class="meta">⚠ 国内访问需网络工具</div>
+      <a class="more" href="ai-office.html#gemini">实测步骤 →</a>
+    </div>
+    <div class="tool">
+      <div class="top"><span class="badge free">免费</span><h3>Bing Image Creator</h3></div>
+      <p>底层 DALL·E 3，中文提示词友好，免费额度充足。</div>
+      <div class="meta">⚠ 国内访问需网络工具</div>
+      <a class="more" href="ai-image-video.html#bing">实测步骤 →</a>
+    </div>
+    <div class="tool">
+      <div class="top"><span class="badge free">免费</span><h3>酷酷百宝盒</h3></div>
+      <p>微信小程序，图片处理/音视频/办公测算一站式，免安装。</div>
+      <div class="meta">⚠ 功能多，按需取用</div>
+      <a class="more" href="ai-office.html#baibao">实测步骤 →</a>
+    </div>
+  </div>
+
+  <div class="dl">
+    <h3>📥 下载：2026 免费 AI 工具清单（txt）</h3>
+    <p>一张表汇总本站全部工具的入口、适用场景与避坑，离线也能看。</p>
+    <a href="ai-tools-list.txt" download>点此下载清单</a>
+  </div>
+</div>
+
+<footer>
+  免费AI工具实测库 · 内容基于公开实测整理，工具政策可能变动，以官方为准 · <a href="privacy.html">隐私政策</a>
+</footer>
 </body>
 </html>

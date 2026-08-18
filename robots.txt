@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://w-zc-lang.github.io/test-site/sitemap.xml

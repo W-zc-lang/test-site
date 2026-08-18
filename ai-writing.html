@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>写作对话类 AI 工具实测：豆包 / DeepSeek / Kimi / Claude</title>
+<meta name="description" content="实测豆包、DeepSeek、Kimi、Claude 四款免费写作对话 AI，给出具体使用步骤、适用场景与避坑提醒，帮你挑对工具。" />
+<meta name="keywords" content="豆包,DeepSeek,Kimi,Claude,AI写作,免费AI,AI写文案,长文写作" />
+</head>
+<body>
+<style>
+  :root{--bg:#0b1020;--card:#141b30;--line:#27314f;--txt:#e8ecf6;--sub:#9aa6c4;--accent:#6d8bff;--accent2:#9b6bff;--ok:#3ddc97;--warn:#ffb454}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,sans-serif;background:var(--bg);color:var(--txt);line-height:1.75;padding-bottom:40px}
+  a{color:var(--accent);text-decoration:none}
+  .nav{max-width:1080px;margin:0 auto;display:flex;gap:18px;padding:18px 24px;align-items:center;flex-wrap:wrap}
+  .nav .logo{font-weight:800;font-size:18px;margin-right:auto;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .nav a{color:var(--sub);font-size:14px}.nav a:hover{color:var(--txt)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  h1{font-size:30px;padding:30px 24px 6px}
+  .lead{color:var(--sub);padding:0 24px 20px;max-width:760px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;margin:18px 0;scroll-margin-top:80px}
+  .card h2{font-size:20px;margin-bottom:4px}
+  .tag{display:inline-block;font-size:11px;padding:2px 10px;border-radius:999px;background:rgba(61,220,151,.15);color:var(--ok);margin-bottom:10px}
+  .card h4{font-size:14px;color:var(--accent);margin:14px 0 6px}
+  .card ol,.card ul{padding-left:20px;color:var(--sub);font-size:14px}
+  .card li{margin:4px 0}
+  .warn{background:rgba(255,180,84,.1);border-left:3px solid var(--warn);padding:10px 14px;border-radius:8px;font-size:13px;color:var(--warn);margin-top:12px}
+  .back{display:inline-block;margin:10px 24px;font-size:14px}
+  footer{color:var(--sub);font-size:12px;text-align:center;margin-top:36px;border-top:1px solid var(--line);padding-top:20px}
+  code{background:#0e1530;padding:2px 6px;border-radius:5px;color:#cdd6f4;font-size:13px}
+</style>
+<nav class="nav"><span class="logo">免费AI工具实测库</span>
+  <a href="index.html">首页</a><a href="ai-writing.html">写作对话</a>
+  <a href="ai-image-video.html">图像视频</a><a href="ai-office.html">办公效率</a>
+  <a href="about.html">关于</a><a href="contact.html">联系</a></nav>
+
+<h1>✍️ 写作 / 对话类 AI 实测</h1>
+<p class="lead">四款都是免费的。侧重点不同：豆包最像"营销文案机器"，DeepSeek 推理强，Kimi 擅长啃长文档，Claude 长文写作自然。下面逐个给具体玩法。</p>
+<a class="back" href="index.html">← 返回首页</a>
+
+<div class="wrap">
+  <div class="card" id="doubao">
+    <span class="tag">免费 · 字节出品</span>
+    <h2>豆包</h2>
+    <p style="color:var(--sub);font-size:14px">适合：小红书文案、短视频口播脚本、简历优化、软文。永久免费、无字数限制，手机电脑都能用。</p>
+    <h4>3 步上手</h4>
+    <ol>
+      <li>App 或网页搜「豆包」，直接对话，无需翻墙、无需充值。</li>
+      <li>粘贴标准化提示词，例如：<code>写一篇普通人 AI 副业小红书干货，80–120字，口语碎碎念风格，带3个流量标签</code>。</li>
+      <li>批量生成 3 版，再发指令「拆分短句、增加真实实操感受、降机器感」，复制搭配 AI 作图产出图文。</li>
+    </ol>
+    <div class="warn">⚠ 输出偏营销腔、爱用感叹号。发布前自己改口语、删重复，否则容易被平台判"AI 痕迹重"限流。</div>
+  </div>
+
+  <div class="card" id="deepseek">
+    <span class="tag">免费 · 国产大模型</span>
+    <h2>DeepSeek</h2>
+    <p style="color:var(--sub);font-size:14px">适合：脑暴选题、写结构化长文、代码辅助、数据分析思路。推理能力强，中文输出自然。</p>
+    <h4>3 步上手</h4>
+    <ol>
+      <li>打开 deepseek.com，默认用 V3 通用模型；需要深度推理选「深度思考(R1)」。</li>
+      <li>让它生成选题：<code>围绕"免费AI工具"给我5个小红书副业选题，附理由</code>。</li>
+      <li>把大纲丢给它写正文，再追问「更详细、加个人经历例子、口语化」迭代。</li>
+    </ol>
+    <div class="warn">⚠ 晚高峰可能繁忙或回答变慢，错峰使用更顺；复杂任务先用 R1 出框架再切 V3 扩写。</div>
+  </div>
+
+  <div class="card" id="kimi">
+    <span class="tag">免费 · 月之暗面</span>
+    <h2>Kimi</h2>
+    <p style="color:var(--sub);font-size:14px">适合：读长文档、列大纲、写深度内容、资料总结。长文本承载力优秀，适合"喂一堆资料让它消化"。</p>
+    <h4>3 步上手</h4>
+    <ol>
+      <li>打开 kimi.com，左侧可上传 PDF / Word / 网页链接。</li>
+      <li>投喂资料后说：<code>请基于这些材料列一份1500字文章的提纲，分3个部分</code>。</li>
+      <li>逐段让它展开，最后让它「统一语气、补案例、去 AI 腔」。</li>
+    </ol>
+    <div class="warn">⚠ 超长文档（几十万字）建议分段投喂，避免截断；关键数据让它标注出处再核对。</div>
+  </div>
+
+  <div class="card" id="claude">
+    <span class="tag">免费 · Anthropic</span>
+    <h2>Claude</h2>
+    <p style="color:var(--sub);font-size:14px">适合：万字文档总结、合同梳理、论文润色、读书笔记。输出自然、逻辑条理清晰、AI 痕迹弱。</p>
+    <h4>3 步上手</h4>
+    <ol>
+      <li>打开 claude.ai，免费版可上传较大篇幅文本。</li>
+      <li>粘贴长文说：<code>总结核心论点，列3条可执行建议</code>。</li>
+      <li>需要改写时给风格指令，如「改成给老板看的汇报口吻，300字」。</li>
+    </ol>
+    <div class="warn">⚠ 国内访问通常需要网络工具；AI 内容存在事实误差，合同/论文务必人工核对，勿直接照搬商用。</div>
+  </div>
+
+  <p style="color:var(--sub);font-size:13px;margin-top:10px">想一站看全？<a href="ai-tools-list.txt" download>下载工具清单 txt</a>。</p>
+</div>
+<footer>免费AI工具实测库 · 工具政策以官方为准 · <a href="privacy.html">隐私政策</a></footer>
+</body>
+</html>

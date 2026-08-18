@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>图像视频类 AI 工具实测：通义万相 / Bing Image Creator / 剪映</title>
+<meta name="description" content="实测通义万相、Bing Image Creator、剪映三款免费 AI 绘图与视频工具，给出具体步骤、适合场景与避坑提醒。" />
+<meta name="keywords" content="通义万相,AI绘图,Bing Image Creator,剪映,AI视频,免费AI作图,AI剪辑" />
+</head>
+<body>
+<style>
+  :root{--bg:#0b1020;--card:#141b30;--line:#27314f;--txt:#e8ecf6;--sub:#9aa6c4;--accent:#6d8bff;--accent2:#9b6bff;--ok:#3ddc97;--warn:#ffb454}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,sans-serif;background:var(--bg);color:var(--txt);line-height:1.75;padding-bottom:40px}
+  a{color:var(--accent);text-decoration:none}
+  .nav{max-width:1080px;margin:0 auto;display:flex;gap:18px;padding:18px 24px;align-items:center;flex-wrap:wrap}
+  .nav .logo{font-weight:800;font-size:18px;margin-right:auto;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .nav a{color:var(--sub);font-size:14px}.nav a:hover{color:var(--txt)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  h1{font-size:30px;padding:30px 24px 6px}
+  .lead{color:var(--sub);padding:0 24px 20px;max-width:760px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;margin:18px 0;scroll-margin-top:80px}
+  .card h2{font-size:20px;margin-bottom:4px}
+  .tag{display:inline-block;font-size:11px;padding:2px 10px;border-radius:999px;background:rgba(61,220,151,.15);color:var(--ok);margin-bottom:10px}
+  .card h4{font-size:14px;color:var(--accent);margin:14px 0 6px}
+  .card ol{padding-left:20px;color:var(--sub);font-size:14px}
+  .card li{margin:4px 0}
+  .warn{background:rgba(255,180,84,.1);border-left:3px solid var(--warn);padding:10px 14px;border-radius:8px;font-size:13px;color:var(--warn);margin-top:12px}
+  .back{display:inline-block;margin:10px 24px;font-size:14px}
+  footer{color:var(--sub);font-size:12px;text-align:center;margin-top:36px;border-top:1px solid var(--line);padding-top:20px}
+  code{background:#0e1530;padding:2px 6px;border-radius:5px;color:#cdd6f4;font-size:13px}
+</style>
+<nav class="nav"><span class="logo">免费AI工具实测库</span>
+  <a href="index.html">首页</a><a href="ai-writing.html">写作对话</a>
+  <a href="ai-image-video.html">图像视频</a><a href="ai-office.html">办公效率</a>
+  <a href="about.html">关于</a><a href="contact.html">联系</a></nav>
+
+<h1>🎨 图像 / 视频类 AI 实测</h1>
+<p class="lead">画图用通义万相（国内直连、免费额度够）和 Bing Image Creator（DALL·E 3 质量高）；剪辑用剪映，从文案到成片一条龙。下面逐个实测。</p>
+<a class="back" href="index.html">← 返回首页</a>
+
+<div class="wrap">
+  <div class="card" id="wanxiang">
+    <span class="tag">免费 · 阿里出品</span>
+    <h2>通义万相</h2>
+    <p style="color:var(--sub);font-size:14px">适合：小红书封面、头像、海报、电商主图。在通义千问 App 内「万相绘画」，每日免费额度够用，原图无水印。</p>
+    <h4>3 步上手</h4>
+    <ol>
+      <li>打开通义千问 App，找到「万相绘画」入口。</li>
+      <li>选画布尺寸（小红书选 3:4 竖版），输入精准提示词：<code>AI副业干货封面，简约白底粗大字，干净高级无杂乱元素</code>。</li>
+      <li>生成 4 张任选，不满意直接微调关键词重绘，原图一键下载。</li>
+    </ol>
+    <div class="warn">⚠ 复杂构图（多人物、特定姿势）需多轮微调关键词；商用注意版权提示。</div>
+  </div>
+
+  <div class="card" id="bing">
+    <span class="tag">免费 · DALL·E 3</span>
+    <h2>Bing Image Creator</h2>
+    <p style="color:var(--sub);font-size:14px">适合：配图、插画、创意素材、社交媒体视觉。底层 DALL·E 3，中文提示词理解友好，免费额度充足。</p>
+    <h4>3 步上手</h4>
+    <ol>
+      <li>打开 bing.com/create，用微软账号登录。</li>
+      <li>口语化描述即可：<code>一只戴眼镜的猫在看书，水彩风格，暖色调</code>。</li>
+      <li>选图下载；额度用完会慢，可换时段或等刷新。</li>
+    </ol>
+    <div class="warn">⚠ 国内访问通常需要网络工具；生成速度受额度影响，非紧急图建议批量排队。</div>
+  </div>
+
+  <div class="card" id="jianying">
+    <span class="tag">免费 · 字节出品</span>
+    <h2>剪映</h2>
+    <p style="color:var(--sub);font-size:14px">适合：图文成片、AI 配音、自动字幕、短视频代剪。基础 AI 功能永久免费，手机电脑都能用。</p>
+    <h4>3 步上手</h4>
+    <ol>
+      <li>应用商店 / 电脑端下载剪映，导入写好的文案。</li>
+      <li>用「图文成片」：AI 自动匹配画面、转场、背景音乐；文本朗读选免费情感音色生成配音。</li>
+      <li>自动识别生成字幕，简单调整画面时长，导出 1080P 发抖音 / 小红书。</li>
+    </ol>
+    <div class="warn">⚠ 部分高级素材、贴纸、音色需会员；成片建议人工过一遍字幕防止错字。</div>
+  </div>
+
+  <p style="color:var(--sub);font-size:13px;margin-top:10px">想一站看全？<a href="ai-tools-list.txt" download>下载工具清单 txt</a>。</p>
+</div>
+<footer>免费AI工具实测库 · 工具政策以官方为准 · <a href="privacy.html">隐私政策</a></footer>
+</body>
+</html>

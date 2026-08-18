@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>办公效率类 AI 工具实测：Gemini / 酷酷百宝盒</title>
+<meta name="description" content="实测 Gemini 与酷酷百宝盒两款免费办公效率 AI，给出多模态解析、图片处理、音视频等具体用法与避坑。" />
+<meta name="keywords" content="Gemini,酷酷百宝盒,AI办公,多模态,免费工具,微信小程序,效率工具" />
+</head>
+<body>
+<style>
+  :root{--bg:#0b1020;--card:#141b30;--line:#27314f;--txt:#e8ecf6;--sub:#9aa6c4;--accent:#6d8bff;--accent2:#9b6bff;--ok:#3ddc97;--warn:#ffb454}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,sans-serif;background:var(--bg);color:var(--txt);line-height:1.75;padding-bottom:40px}
+  a{color:var(--accent);text-decoration:none}
+  .nav{max-width:1080px;margin:0 auto;display:flex;gap:18px;padding:18px 24px;align-items:center;flex-wrap:wrap}
+  .nav .logo{font-weight:800;font-size:18px;margin-right:auto;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .nav a{color:var(--sub);font-size:14px}.nav a:hover{color:var(--txt)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  h1{font-size:30px;padding:30px 24px 6px}
+  .lead{color:var(--sub);padding:0 24px 20px;max-width:760px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;margin:18px 0;scroll-margin-top:80px}
+  .card h2{font-size:20px;margin-bottom:4px}
+  .tag{display:inline-block;font-size:11px;padding:2px 10px;border-radius:999px;background:rgba(61,220,151,.15);color:var(--ok);margin-bottom:10px}
+  .card h4{font-size:14px;color:var(--accent);margin:14px 0 6px}
+  .card ol{padding-left:20px;color:var(--sub);font-size:14px}
+  .card li{margin:4px 0}
+  .warn{background:rgba(255,180,84,.1);border-left:3px solid var(--warn);padding:10px 14px;border-radius:8px;font-size:13px;color:var(--warn);margin-top:12px}
+  .back{display:inline-block;margin:10px 24px;font-size:14px}
+  footer{color:var(--sub);font-size:12px;text-align:center;margin-top:36px;border-top:1px solid var(--line);padding-top:20px}
+  code{background:#0e1530;padding:2px 6px;border-radius:5px;color:#cdd6f4;font-size:13px}
+</style>
+<nav class="nav"><span class="logo">免费AI工具实测库</span>
+  <a href="index.html">首页</a><a href="ai-writing.html">写作对话</a>
+  <a href="ai-image-video.html">图像视频</a><a href="ai-office.html">办公效率</a>
+  <a href="about.html">关于</a><a href="contact.html">联系</a></nav>
+
+<h1>🧰 办公效率类 AI 实测</h1>
+<p class="lead">这类工具不写长文也不画图，专治"日常零碎活"：多模态解析、图片处理、音视频剪辑、单位换算。下面两款都是免费、零门槛。</p>
+<a class="back" href="index.html">← 返回首页</a>
+
+<div class="wrap">
+  <div class="card" id="gemini">
+    <span class="tag">免费 · 谷歌出品</span>
+    <h2>Gemini</h2>
+    <p style="color:var(--sub);font-size:14px">适合：长文档解读、图片识图分析、中英文翻译、方案构思、资料总结。免费版开放基础多模态能力，可上传图片/PDF 解析、联网搜索。</p>
+    <h4>3 步上手</h4>
+    <ol>
+      <li>打开 gemini.google.com，登录谷歌账号。</li>
+      <li>上传图片或 PDF，提问：<code>总结这份合同的关键条款和风险点</code>；或贴网址让它读后总结。</li>
+      <li>图文联动追问细节，让它联网核对最新信息。</li>
+    </ol>
+    <div class="warn">⚠ 国内访问通常需要网络工具；输出可能有事实误差，重要结论务必人工复核。</div>
+  </div>
+
+  <div class="card" id="baibao">
+    <span class="tag">免费 · 微信小程序</span>
+    <h2>酷酷百宝盒</h2>
+    <p style="color:var(--sub);font-size:14px">适合：图片处理、音视频剪辑、单位换算、文案辅助、截图工具。微信小程序载体，免安装、不占内存、大量功能永久免费、导出不带水印。</p>
+    <h4>3 步上手</h4>
+    <ol>
+      <li>微信顶部搜索「酷酷百宝盒」，进入官方小程序，无需注册。</li>
+      <li>首页按分类找工具：图片处理 / 音视频 / 办公 / 测算。</li>
+      <li>上传素材或输入内容，设参数，云端处理完一键导出，文件可直接微信转发。</li>
+    </ol>
+    <div class="warn">⚠ 功能很多，别贪多；按当下需求取用最顺手的一两个，避免信息过载。</div>
+  </div>
+
+  <p style="color:var(--sub);font-size:13px;margin-top:10px">想一站看全？<a href="ai-tools-list.txt" download>下载工具清单 txt</a>。</p>
+</div>
+<footer>免费AI工具实测库 · 工具政策以官方为准 · <a href="privacy.html">隐私政策</a></footer>
+</body>
+</html>
