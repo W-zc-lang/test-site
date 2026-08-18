@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>我的测试网站</title>
+  <style>
+    :root { color-scheme: light dark; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #185fa5, #0f6e56);
+      color: #fff;
+      padding: 24px;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 16px;
+      padding: 40px 48px;
+      max-width: 560px;
+      text-align: center;
+      backdrop-filter: blur(4px);
+    }
+    h1 { font-size: 28px; font-weight: 600; margin-bottom: 16px; }
+    p { font-size: 16px; line-height: 1.7; opacity: 0.92; }
+    .tag {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.2);
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>你好，这是我的测试网站</h1>
+    <p>这只是一个用于验证 GitHub Pages 部署流程的示例页面。</p>
+    <p>几行测试文字，部署成功就说明整条链路跑通了。</p>
+    <span class="tag">Deploy test · GitHub Pages</span>
+  </div>
+</body>
+</html>
