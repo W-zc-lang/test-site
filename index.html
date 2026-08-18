@@ -10,147 +10,334 @@
 <body>
 <style>
   :root{
-    --bg:#0b1020; --card:#141b30; --line:#27314f;
-    --txt:#e8ecf6; --sub:#9aa6c4; --accent:#6d8bff; --accent2:#9b6bff;
-    --ok:#3ddc97; --warn:#ffb454;
+    --sidebar:#fff; --bg:#f5f7fa; --card:#fff;
+    --line:#e4e7ed; --txt:#303133; --sub:#606266; --light:#909399;
+    --accent:#409eff; --accent-light:#ecf5ff;
+    --ok:#67c23a; --ok-bg:#f0f9eb;
+    --warn:#e6a23c; --warn-bg:#fdf6ec;
+    --danger:#f56c6c; --danger-bg:#fef0f0;
+    --radius:10px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,sans-serif;
-    background:radial-gradient(1200px 600px at 80% -10%,#1b2347 0%,var(--bg) 55%);
-    color:var(--txt);line-height:1.7;padding-bottom:40px}
-  a{color:var(--accent);text-decoration:none}
-  .nav{max-width:1080px;margin:0 auto;display:flex;gap:18px;padding:18px 24px;
-    align-items:center;flex-wrap:wrap}
-  .nav .logo{font-weight:800;font-size:18px;margin-right:auto;
-    background:linear-gradient(90deg,var(--accent),var(--accent2));
-    -webkit-background-clip:text;background-clip:text;color:transparent}
-  .nav a{color:var(--sub);font-size:14px}
-  .nav a:hover{color:var(--txt)}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
-  .hero{padding:48px 24px 30px;text-align:center}
-  .hero h1{font-size:34px;line-height:1.3;margin-bottom:14px}
-  .hero h1 span{background:linear-gradient(90deg,var(--accent),var(--accent2));
-    -webkit-background-clip:text;background-clip:text;color:transparent}
-  .hero p{color:var(--sub);max-width:640px;margin:0 auto 22px}
-  .cta{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--accent2));
-    color:#fff;padding:12px 26px;border-radius:999px;font-weight:700;
-    box-shadow:0 8px 30px rgba(109,139,255,.35)}
-  .cats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:34px 0 10px}
-  .cat{background:var(--card);border:1px solid var(--line);border-radius:14px;
-    padding:18px;text-align:center;transition:.2s}
-  .cat:hover{transform:translateY(-3px);border-color:var(--accent)}
-  .cat .ic{font-size:26px}
-  .cat h3{font-size:15px;margin:8px 0 4px}
-  .cat p{font-size:12px;color:var(--sub)}
-  .sec-title{font-size:22px;margin:40px 0 16px}
-  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-  .tool{background:var(--card);border:1px solid var(--line);border-radius:14px;
-    padding:18px;display:flex;flex-direction:column}
-  .tool .top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
-  .tool .badge{font-size:11px;padding:2px 9px;border-radius:999px;
-    background:rgba(61,220,151,.15);color:var(--ok)}
-  .tool .badge.free{background:rgba(109,139,255,.15);color:var(--accent)}
-  .tool h3{font-size:17px}
-  .tool p{font-size:13px;color:var(--sub);flex:1}
-  .tool .meta{font-size:12px;color:var(--warn);margin:10px 0}
-  .tool a.more{font-size:13px;font-weight:600;align-self:flex-start}
-  .dl{background:var(--card);border:1px dashed var(--accent);border-radius:14px;
-    padding:22px;text-align:center;margin:36px 0}
-  .dl h3{font-size:18px;margin-bottom:6px}
-  .dl p{color:var(--sub);font-size:13px;margin-bottom:14px}
-  .dl a{display:inline-block;background:var(--accent);color:#fff;padding:10px 22px;
-    border-radius:999px;font-weight:700}
-  footer{color:var(--sub);font-size:12px;text-align:center;margin-top:40px;
-    border-top:1px solid var(--line);padding-top:20px}
-  @media(max-width:760px){.cats,.grid{grid-template-columns:1fr 1fr}
-    .hero h1{font-size:26px}}
+    background:var(--bg);color:var(--txt);line-height:1.6;}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:none;background:transparent;}
+  /* 侧边栏 */
+  .sidebar{position:fixed;left:0;top:0;width:210px;height:100vh;background:var(--sidebar);
+    border-right:1px solid var(--line);display:flex;flex-direction:column;padding:16px 0;z-index:100;}
+  .brand{display:flex;align-items:center;gap:10px;padding:0 20px 18px;font-weight:700;font-size:16px;color:var(--txt);}
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);}
+  .nav-item{display:flex;align-items:center;gap:12px;padding:11px 20px;margin:2px 12px;
+    border-radius:var(--radius);font-size:14px;color:var(--sub);transition:.15s;}
+  .nav-item:hover{background:#f5f7fa;color:var(--txt);}
+  .nav-item.active{background:var(--accent-light);color:var(--accent);font-weight:600;}
+  .nav-item svg{width:18px;height:18px;opacity:.85;}
+  .nav-group{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);}
+  .nav-label{font-size:12px;color:var(--light);padding:6px 20px;text-transform:uppercase;letter-spacing:.5px;}
+  /* 主区域 */
+  .main{margin-left:210px;min-height:100vh;display:flex;flex-direction:column;}
+  .topbar{height:60px;background:#fff;border-bottom:1px solid var(--line);display:flex;
+    align-items:center;justify-content:space-between;padding:0 24px;position:sticky;top:0;z-index:90;}
+  .topbar h1{font-size:18px;font-weight:600;}
+  .topbar-actions{display:flex;align-items:center;gap:12px;}
+  .search{position:relative;}
+  .search input{width:240px;height:34px;border:1px solid var(--line);border-radius:var(--radius);
+    padding:0 12px 0 34px;font-size:13px;outline:none;transition:.15s;}
+  .search input:focus{border-color:var(--accent);}
+  .search svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--light);}
+  .btn{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 14px;border:1px solid var(--line);
+    border-radius:var(--radius);background:#fff;font-size:13px;color:var(--sub);transition:.15s;}
+  .btn:hover{border-color:var(--accent);color:var(--accent);}
+  .btn.active{background:var(--accent-light);border-color:var(--accent);color:var(--accent);font-weight:600;}
+  .content{flex:1;padding:24px;}
+  .toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;}
+  .toolbar .count{font-size:13px;color:var(--sub);}
+  .view-toggle{display:flex;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
+  .view-toggle .btn{border:none;border-radius:0;height:32px;}
+  .view-toggle .btn+.btn{border-left:1px solid var(--line);}
+  /* 卡片 */
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;}
+  .cards.list{grid-template-columns:1fr;}
+  .cards.list .card{display:flex;align-items:center;gap:20px;padding:16px 20px;}
+  .cards.list .card-body{flex:1;display:grid;grid-template-columns:140px 1fr 1fr 120px;align-items:center;gap:20px;}
+  .cards.list .card h3{margin-bottom:0;}
+  .cards.list .card p{flex:none;margin:0;}
+  .cards.list .card .meta{flex:none;margin:0;}
+  .cards.list .card .card-action{align-self:auto;margin-top:0;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px;display:flex;flex-direction:column;transition:.15s;}
+  .card:hover{box-shadow:0 4px 16px rgba(0,0,0,.06);transform:translateY(-1px);}
+  .card-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;}
+  .card h3{font-size:16px;font-weight:600;}
+  .card h3 small{font-size:12px;color:var(--light);font-weight:400;margin-left:6px;}
+  .tag{font-size:11px;padding:2px 8px;border-radius:4px;font-weight:600;}
+  .tag.free{background:var(--ok-bg);color:var(--ok);}
+  .tag.tool{background:var(--danger-bg);color:var(--danger);}
+  .tag.limit{background:var(--warn-bg);color:var(--warn);}
+  .card-meta{display:grid;grid-template-columns:max-content 1fr;gap:6px 14px;font-size:13px;color:var(--sub);margin-bottom:14px;}
+  .card-meta dt{color:var(--light);font-weight:400;}
+  .card-meta dd{color:var(--txt);}
+  .card-meta dd code{background:#f5f7fa;padding:1px 6px;border-radius:4px;font-family:inherit;font-size:12px;}
+  .card p{font-size:13px;color:var(--sub);flex:1;margin-bottom:14px;line-height:1.7;}
+  .card-action{align-self:flex-end;margin-top:auto;}
+  .card-action .btn{color:var(--accent);border-color:var(--accent-light);background:var(--accent-light);}
+  .card-action .btn:hover{background:var(--accent);color:#fff;}
+  .empty{text-align:center;padding:60px 20px;color:var(--light);font-size:14px;display:none;}
+  .empty.show{display:block;}
+  footer{padding:20px 24px;border-top:1px solid var(--line);font-size:12px;color:var(--light);display:flex;justify-content:space-between;}
+  footer a{color:var(--accent);}
+  @media(max-width:900px){
+    .sidebar{transform:translateX(-100%);}
+    .main{margin-left:0;}
+    .cards{grid-template-columns:1fr;}
+  }
+  @media(max-width:640px){
+    .topbar{flex-wrap:wrap;height:auto;padding:12px 16px;gap:10px;}
+    .search input{width:160px;}
+    .content{padding:16px;}
+    .cards.list .card,.cards.list .card-body{display:block;}
+  }
 </style>
 
-<nav class="nav">
-  <span class="logo">免费AI工具实测库</span>
-  <a href="index.html">首页</a>
-  <a href="ai-writing.html">写作对话</a>
-  <a href="ai-image-video.html">图像视频</a>
-  <a href="ai-office.html">办公效率</a>
-  <a href="about.html">关于</a>
-  <a href="contact.html">联系</a>
-</nav>
-
-<header class="hero">
-  <h1>2026 年<span>真正免费</span>的 AI 工具，<br>一篇实测讲清楚怎么用</h1>
-  <p>我们逐个试用豆包、DeepSeek、Kimi、通义万相、剪映等工具，给你具体步骤、适用场景和避坑提醒。不吹不黑，能白嫖就别花钱。</p>
-  <a class="cta" href="ai-writing.html">看实测 →</a>
-</header>
-
-<div class="wrap">
-  <div class="cats">
-    <a class="cat" href="ai-writing.html"><div class="ic">✍️</div><h3>写作 / 对话</h3><p>写文案·长文·报告</p></a>
-    <a class="cat" href="ai-image-video.html"><div class="ic">🎨</div><h3>图像 / 视频</h3><p>AI 绘图·剪辑</p></a>
-    <a class="cat" href="ai-office.html"><div class="ic">🧰</div><h3>办公效率</h3><p>小程序·多模态</p></a>
-    <a class="cat" href="about.html"><div class="ic">📌</div><h3>关于本站</h3><p>怎么选·怎么用</p></a>
-  </div>
-
-  <h2 class="sec-title">🔥 热门工具速览</h2>
-  <div class="grid">
-    <div class="tool">
-      <div class="top"><span class="badge free">免费</span><h3>豆包（字节）</h3></div>
-      <p>写小红书文案、口播脚本、简历优化，永久免费无字数限制，手机电脑都能用。</p>
-      <div class="meta">⚠ 输出偏营销腔，发布前手动润色降机器感</div>
-      <a class="more" href="ai-writing.html#doubao">实测步骤 →</a>
-    </div>
-    <div class="tool">
-      <div class="top"><span class="badge free">免费</span><h3>DeepSeek</h3></div>
-      <p>推理强、中文自然，适合脑暴选题、写结构化长文、代码辅助。</p>
-      <div class="meta">⚠ 高峰期偶尔繁忙，可错峰使用</div>
-      <a class="more" href="ai-writing.html#deepseek">实测步骤 →</a>
-    </div>
-    <div class="tool">
-      <div class="top"><span class="badge free">免费</span><h3>Kimi（月之暗面）</h3></div>
-      <p>读长文档、列大纲、写深度内容，长文本承载力优秀。</p>
-      <div class="meta">⚠ 超长文档建议分段投喂</div>
-      <a class="more" href="ai-writing.html#kimi">实测步骤 →</a>
-    </div>
-    <div class="tool">
-      <div class="top"><span class="badge free">免费</span><h3>通义万相（阿里）</h3></div>
-      <p>免费 AI 作图，做封面、头像、海报，每日额度够用，无水印下载。</p>
-      <div class="meta">⚠ 复杂构图需多轮微调关键词</div>
-      <a class="more" href="ai-image-video.html#wanxiang">实测步骤 →</a>
-    </div>
-    <div class="tool">
-      <div class="top"><span class="badge free">免费</span><h3>剪映</h3></div>
-      <p>图文成片、AI 配音、自动字幕，从文案到短视频一站式免费。</p>
-      <div class="meta">⚠ 部分高级素材需会员</div>
-      <a class="more" href="ai-image-video.html#jianying">实测步骤 →</a>
-    </div>
-    <div class="tool">
-      <div class="top"><span class="badge free">免费</span><h3>Gemini（谷歌）</h3></div>
-      <p>多模态，上传图片/PDF 解析、联网搜索、长文总结。</p>
-      <div class="meta">⚠ 国内访问需网络工具</div>
-      <a class="more" href="ai-office.html#gemini">实测步骤 →</a>
-    </div>
-    <div class="tool">
-      <div class="top"><span class="badge free">免费</span><h3>Bing Image Creator</h3></div>
-      <p>底层 DALL·E 3，中文提示词友好，免费额度充足。</div>
-      <div class="meta">⚠ 国内访问需网络工具</div>
-      <a class="more" href="ai-image-video.html#bing">实测步骤 →</a>
-    </div>
-    <div class="tool">
-      <div class="top"><span class="badge free">免费</span><h3>酷酷百宝盒</h3></div>
-      <p>微信小程序，图片处理/音视频/办公测算一站式，免安装。</div>
-      <div class="meta">⚠ 功能多，按需取用</div>
-      <a class="more" href="ai-office.html#baibao">实测步骤 →</a>
-    </div>
-  </div>
-
-  <div class="dl">
-    <h3>📥 下载：2026 免费 AI 工具清单（txt）</h3>
-    <p>一张表汇总本站全部工具的入口、适用场景与避坑，离线也能看。</p>
-    <a href="ai-tools-list.txt" download>点此下载清单</a>
+<div class="sidebar">
+  <div class="brand"><span class="dot"></span>AI 工具管理台</div>
+  <a class="nav-item active" href="index.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+    控制面板
+  </a>
+  <a class="nav-item" href="ai-writing.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+    写作 / 对话
+  </a>
+  <a class="nav-item" href="ai-image-video.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+    图像 / 视频
+  </a>
+  <a class="nav-item" href="ai-office.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+    办公效率
+  </a>
+  <div class="nav-group">
+    <div class="nav-label">更多</div>
+    <a class="nav-item" href="about.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+      关于面板
+    </a>
+    <a class="nav-item" href="contact.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+      联系支持
+    </a>
+    <a class="nav-item" href="privacy.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      隐私政策
+    </a>
   </div>
 </div>
 
-<footer>
-  免费AI工具实测库 · 内容基于公开实测整理，工具政策可能变动，以官方为准 · <a href="privacy.html">隐私政策</a>
-</footer>
+<div class="main">
+  <header class="topbar">
+    <h1>工具管理台</h1>
+    <div class="topbar-actions">
+      <div class="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input type="text" id="search" placeholder="搜索工具、分类、功能..." />
+      </div>
+      <div class="view-toggle">
+        <button class="btn active" data-view="grid" title="网格视图">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+          网格
+        </button>
+        <button class="btn" data-view="list" title="列表视图">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          列表
+        </button>
+      </div>
+      <button class="btn" id="refresh" title="刷新">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="content">
+    <div class="toolbar">
+      <div class="count">共 <span id="count">8</span> 个工具 · 全部已实测</div>
+    </div>
+
+    <div class="cards" id="cards">
+      <article class="card" data-keywords="豆包 字节 写作 文案 小红书 口播 简历 免费">
+        <div class="card-header">
+          <h3>豆包 <small>字节跳动</small></h3>
+          <span class="tag free">永久免费</span>
+        </div>
+        <dl class="card-meta">
+          <dt>分类</dt><dd><code>写作 / 对话</code></dd>
+          <dt>适合</dt><dd>小红书文案、口播脚本、简历优化</dd>
+          <dt>注意</dt><dd>输出偏营销腔，发布前润色</dd>
+        </dl>
+        <p>手机电脑都能用，永久免费无字数限制，中文语境适配好。</p>
+        <div class="card-action"><a class="btn" href="ai-writing.html#doubao">查看实测</a></div>
+      </article>
+
+      <article class="card" data-keywords="DeepSeek 深度求索 推理 长文 代码 免费">
+        <div class="card-header">
+          <h3>DeepSeek</h3>
+          <span class="tag free">永久免费</span>
+        </div>
+        <dl class="card-meta">
+          <dt>分类</dt><dd><code>写作 / 对话</code></dd>
+          <dt>适合</dt><dd>脑暴选题、结构化长文、代码辅助</dd>
+          <dt>注意</dt><dd>高峰期偶尔繁忙，可错峰使用</dd>
+        </dl>
+        <p>推理能力强，中文表达自然，适合需要逻辑链的内容创作。</p>
+        <div class="card-action"><a class="btn" href="ai-writing.html#deepseek">查看实测</a></div>
+      </article>
+
+      <article class="card" data-keywords="Kimi 月之暗面 长文档 大纲 深度内容 免费">
+        <div class="card-header">
+          <h3>Kimi</h3>
+          <span class="tag free">永久免费</span>
+        </div>
+        <dl class="card-meta">
+          <dt>分类</dt><dd><code>写作 / 对话</code></dd>
+          <dt>适合</dt><dd>读长文档、列大纲、写深度内容</dd>
+          <dt>注意</dt><dd>超长文档建议分段投喂</dd>
+        </dl>
+        <p>长文本承载力优秀，丢一本书进去也能帮你总结重点。</p>
+        <div class="card-action"><a class="btn" href="ai-writing.html#kimi">查看实测</a></div>
+      </article>
+
+      <article class="card" data-keywords="Claude Anthropic 英文 长文 学术 免费">
+        <div class="card-header">
+          <h3>Claude</h3>
+          <span class="tag tool">需网络工具</span>
+        </div>
+        <dl class="card-meta">
+          <dt>分类</dt><dd><code>写作 / 对话</code></dd>
+          <dt>适合</dt><dd>英文长文、学术改写、复杂推理</dd>
+          <dt>注意</dt><dd>国内访问需网络工具，免费额度有限</dd>
+        </dl>
+        <p>英文写作和逻辑分析口碑极佳，适合有稳定访问条件的用户。</p>
+        <div class="card-action"><a class="btn" href="ai-writing.html#claude">查看实测</a></div>
+      </article>
+
+      <article class="card" data-keywords="通义万相 阿里 绘图 封面 头像 海报 免费">
+        <div class="card-header">
+          <h3>通义万相 <small>阿里</small></h3>
+          <span class="tag free">永久免费</span>
+        </div>
+        <dl class="card-meta">
+          <dt>分类</dt><dd><code>图像 / 视频</code></dd>
+          <dt>适合</dt><dd>封面、头像、海报、社交媒体配图</dd>
+          <dt>注意</dt><dd>复杂构图需多轮微调关键词</dd>
+        </dl>
+        <p>每日额度够用，无水印下载，中文提示词理解准确。</p>
+        <div class="card-action"><a class="btn" href="ai-image-video.html#wanxiang">查看实测</a></div>
+      </article>
+
+      <article class="card" data-keywords="Bing Image Creator DALL-E 绘图 微软 免费">
+        <div class="card-header">
+          <h3>Bing Image Creator</h3>
+          <span class="tag tool">需网络工具</span>
+        </div>
+        <dl class="card-meta">
+          <dt>分类</dt><dd><code>图像 / 视频</code></dd>
+          <dt>适合</dt><dd>插画、概念图、创意视觉</dd>
+          <dt>注意</dt><dd>底层 DALL·E 3，国内访问需工具</dd>
+        </dl>
+        <p>中文提示词友好，免费额度充足，出图质量稳定。</p>
+        <div class="card-action"><a class="btn" href="ai-image-video.html#bing">查看实测</a></div>
+      </article>
+
+      <article class="card" data-keywords="剪映 视频 剪辑 AI配音 字幕 图文成片 免费">
+        <div class="card-header">
+          <h3>剪映 <small>字节</small></h3>
+          <span class="tag free">基础免费</span>
+        </div>
+        <dl class="card-meta">
+          <dt>分类</dt><dd><code>图像 / 视频</code></dd>
+          <dt>适合</dt><dd>图文成片、AI 配音、自动字幕</dd>
+          <dt>注意</dt><dd>部分高级素材/特效需会员</dd>
+        </dl>
+        <p>从文案到短视频一站式免费，手机剪视频最顺手的工具之一。</p>
+        <div class="card-action"><a class="btn" href="ai-image-video.html#jianying">查看实测</a></div>
+      </article>
+
+      <article class="card" data-keywords="Gemini 谷歌 多模态 PDF 图片 联网 免费">
+        <div class="card-header">
+          <h3>Gemini <small>谷歌</small></h3>
+          <span class="tag tool">需网络工具</span>
+        </div>
+        <dl class="card-meta">
+          <dt>分类</dt><dd><code>办公效率</code></dd>
+          <dt>适合</dt><dd>上传图片/PDF 解析、联网搜索、长文总结</dd>
+          <dt>注意</dt><dd>国内访问需网络工具</dd>
+        </dl>
+        <p>多模态能力强，适合做资料整理、文档速读和跨语言处理。</p>
+        <div class="card-action"><a class="btn" href="ai-office.html#gemini">查看实测</a></div>
+      </article>
+
+      <article class="card" data-keywords="酷酷百宝盒 微信小程序 图片处理 音视频 办公测算 免费">
+        <div class="card-header">
+          <h3>酷酷百宝盒</h3>
+          <span class="tag free">免费</span>
+        </div>
+        <dl class="card-meta">
+          <dt>分类</dt><dd><code>办公效率</code></dd>
+          <dt>适合</dt><dd>图片处理、音视频、办公测算</dd>
+          <dt>注意</dt><dd>功能多，按需取用</dd>
+        </dl>
+        <p>微信小程序，免安装，临时处理文件时非常方便。</p>
+        <div class="card-action"><a class="btn" href="ai-office.html#baibao">查看实测</a></div>
+      </article>
+    </div>
+
+    <div class="empty" id="empty">没有找到匹配的工具，换个关键词试试。</div>
+  </main>
+
+  <footer>
+    <span>免费AI工具实测库 · 内容基于公开实测整理，工具政策可能变动，以官方为准</span>
+    <span><a href="ai-tools-list.txt" download>下载工具清单</a> · <a href="privacy.html">隐私政策</a></span>
+  </footer>
+</div>
+
+<script>
+  const searchInput=document.getElementById('search');
+  const cardsContainer=document.getElementById('cards');
+  const cards=Array.from(cardsContainer.children);
+  const countEl=document.getElementById('count');
+  const empty=document.getElementById('empty');
+  const viewBtns=document.querySelectorAll('[data-view]');
+
+  searchInput.addEventListener('input',()=>{
+    const q=searchInput.value.trim().toLowerCase();
+    let visible=0;
+    cards.forEach(card=>{
+      const text=(card.innerText+' '+card.dataset.keywords).toLowerCase();
+      const show=!q||text.includes(q);
+      card.style.display=show?'':'none';
+      if(show)visible++;
+    });
+    countEl.textContent=visible;
+    empty.classList.toggle('show',visible===0);
+  });
+
+  viewBtns.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      viewBtns.forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      cardsContainer.classList.toggle('list',btn.dataset.view==='list');
+    });
+  });
+
+  document.getElementById('refresh').addEventListener('click',()=>{
+    searchInput.value='';
+    cards.forEach(c=>c.style.display='');
+    countEl.textContent=cards.length;
+    empty.classList.remove('show');
+    cardsContainer.classList.remove('list');
+    viewBtns.forEach(b=>b.classList.toggle('active',b.dataset.view==='grid'));
+  });
+</script>
 </body>
 </html>
