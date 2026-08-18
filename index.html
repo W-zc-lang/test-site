@@ -70,8 +70,12 @@
     padding:12px 18px;text-align:center;min-width:78px;backdrop-filter:blur(4px);}
   .hero .stat b{display:block;font-size:21px;font-weight:700;}
   .hero .stat span{font-size:12px;opacity:.92;}
-  .toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;}
+  .toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:12px;flex-wrap:wrap;}
   .toolbar .count{font-size:13px;color:var(--sub);}
+  .filters{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{height:32px;padding:0 14px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:13px;color:var(--sub);cursor:pointer;transition:.18s;}
+  .chip:hover{border-color:var(--accent);color:var(--accent);}
+  .chip.active{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600;box-shadow:0 2px 8px rgba(64,158,255,.25);}
   .view-toggle{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;}
   .view-toggle .btn{border:none;border-radius:0;height:32px;}
   .view-toggle .btn+.btn{border-left:1px solid var(--line);}
@@ -151,11 +155,23 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
     图像 / 视频
   </a>
-  <a class="nav-item" href="ai-office.html">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-    办公效率
-  </a>
-  <div class="nav-group">
+      <a class="nav-item" href="ai-office.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        办公效率
+      </a>
+      <a class="nav-item" href="ai-audio.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg>
+        音频 / 配音
+      </a>
+      <a class="nav-item" href="ai-coding.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        编程 / 代码
+      </a>
+      <a class="nav-item" href="ai-search.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        搜索 / 学习
+      </a>
+      <div class="nav-group">
     <div class="nav-label">更多</div>
     <a class="nav-item" href="about.html">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
@@ -214,7 +230,16 @@
     </div>
 
     <div class="toolbar">
-      <div class="count">共 <span id="count">8</span> 个工具 · 全部已实测</div>
+      <div class="count">共 <span id="count">14</span> 个工具 · 全部已实测</div>
+      <div class="filters" id="filters">
+        <button class="chip active" data-cat="all">全部</button>
+        <button class="chip" data-cat="写作/对话">写作/对话</button>
+        <button class="chip" data-cat="图像/视频">图像/视频</button>
+        <button class="chip" data-cat="办公效率">办公效率</button>
+        <button class="chip" data-cat="音频/配音">音频/配音</button>
+        <button class="chip" data-cat="编程/代码">编程/代码</button>
+        <button class="chip" data-cat="搜索/学习">搜索/学习</button>
+      </div>
     </div>
 
     <div class="cards" id="cards">
@@ -370,6 +395,108 @@
         <p>微信小程序，免安装，临时处理文件时非常方便。</p>
         <div class="card-action"><a class="btn" href="ai-office.html#baibao">查看实测</a></div>
       </article>
+
+      <article class="card" data-keywords="腾讯智影 数字人 AI配音 视频 配音 字幕 腾讯 免费">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="badge" style="background:linear-gradient(135deg,#5b8def,#7fa8ff)">智</span>
+            <h3>腾讯智影 <small>腾讯</small></h3>
+          </div>
+          <span class="tag free">永久免费</span>
+        </div>
+        <dl class="card-meta">
+          <dt>分类</dt><dd><code>音频 / 配音</code></dd>
+          <dt>适合</dt><dd>视频配音、数字人播报、智能字幕</dd>
+          <dt>注意</dt><dd>高级数字人需消耗额度</dd>
+        </dl>
+        <p>腾讯出品，数字人播报和 AI 配音免费额度足，做口播视频很省力。</p>
+        <div class="card-action"><a class="btn" href="ai-audio.html#zhiying">查看实测</a></div>
+      </article>
+
+      <article class="card" data-keywords="Fish Audio 声音克隆 配音 朗读 文字转语音 免费">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="badge" style="background:linear-gradient(135deg,#ef7ac3,#ffa3da)">F</span>
+            <h3>Fish Audio</h3>
+          </div>
+          <span class="tag free">免费额度</span>
+        </div>
+        <dl class="card-meta">
+          <dt>分类</dt><dd><code>音频 / 配音</code></dd>
+          <dt>适合</dt><dd>音色克隆、文字转语音、有声内容</dd>
+          <dt>注意</dt><dd>免费额度有限，商用需授权</dd>
+        </dl>
+        <p>上传一小段声音即可克隆音色，文字转语音自然，做有声内容零成本起步。</p>
+        <div class="card-action"><a class="btn" href="ai-audio.html#fish">查看实测</a></div>
+      </article>
+
+      <article class="card" data-keywords="通义灵码 阿里 代码 补全 IDE 编程 免费">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="badge" style="background:linear-gradient(135deg,#7a5cf6,#a78bff)">码</span>
+            <h3>通义灵码 <small>阿里</small></h3>
+          </div>
+          <span class="tag free">免费</span>
+        </div>
+        <dl class="card-meta">
+          <dt>分类</dt><dd><code>编程 / 代码</code></dd>
+          <dt>适合</dt><dd>代码补全、注释生成、bug 排查</dd>
+          <dt>注意</dt><dd>需装在 VS Code / JetBrains</dd>
+        </dl>
+        <p>阿里出品，IDE 里实时补全与对话，个人用完全免费，支持主流编辑器。</p>
+        <div class="card-action"><a class="btn" href="ai-coding.html#lingma">查看实测</a></div>
+      </article>
+
+      <article class="card" data-keywords="CodeGeeX 智谱 代码 生成 翻译 编程 免费">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="badge" style="background:linear-gradient(135deg,#2fb38a,#5fd0ad)">C</span>
+            <h3>CodeGeeX <small>智谱</small></h3>
+          </div>
+          <span class="tag free">免费</span>
+        </div>
+        <dl class="card-meta">
+          <dt>分类</dt><dd><code>编程 / 代码</code></dd>
+          <dt>适合</dt><dd>代码生成、中英互译、单元测试</dd>
+          <dt>注意</dt><dd>复杂逻辑需人工校验</dd>
+        </dl>
+        <p>智谱开源的免费代码模型，补全 + 对话 + 翻译一体，个人项目够用。</p>
+        <div class="card-action"><a class="btn" href="ai-coding.html#codegeex">查看实测</a></div>
+      </article>
+
+      <article class="card" data-keywords="秘塔AI搜索 metaso 无广告 搜索 脑图 文库 免费">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="badge" style="background:linear-gradient(135deg,#f59a3c,#ffc06b)">秘</span>
+            <h3>秘塔AI搜索</h3>
+          </div>
+          <span class="tag free">免费</span>
+        </div>
+        <dl class="card-meta">
+          <dt>分类</dt><dd><code>搜索 / 学习</code></dd>
+          <dt>适合</dt><dd>无广告搜索、整理脑图、读论文</dd>
+          <dt>注意</dt><dd>深度回答稍慢</dd>
+        </dl>
+        <p>国内可直接用，无广告、带脑图和文库，查资料比传统搜索干净。</p>
+        <div class="card-action"><a class="btn" href="ai-search.html#metaso">查看实测</a></div>
+      </article>
+
+      <article class="card" data-keywords="纳米AI搜索 360 多模型 搜索 总结 免费">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="badge" style="background:linear-gradient(135deg,#ff6a6a,#ff9d9d)">纳</span>
+            <h3>纳米AI搜索 <small>360</small></h3>
+          </div>
+          <span class="tag free">免费</span>
+        </div>
+        <dl class="card-meta">
+          <dt>分类</dt><dd><code>搜索 / 学习</code></dd>
+          <dt>适合</dt><dd>多模型对比回答、长文总结</dd>
+          <dt>注意</dt><dd>结果需自己判断真伪</dd>
+        </dl>
+        <p>360 出品，聚合多个大模型作答，免费且国内访问顺畅。</p>
+        <div class="card-action"><a class="btn" href="ai-search.html#nano">查看实测</a></div>
+      </article>
     </div>
 
     <div class="empty" id="empty">没有找到匹配的工具，换个关键词试试。</div>
@@ -389,17 +516,30 @@
   const empty=document.getElementById('empty');
   const viewBtns=document.querySelectorAll('[data-view]');
 
-  searchInput.addEventListener('input',()=>{
+  let currentCat='all';
+  function applyFilter(){
     const q=searchInput.value.trim().toLowerCase();
     let visible=0;
     cards.forEach(card=>{
+      const cat=(card.querySelector('.card-meta code')?.textContent||'').trim();
       const text=(card.innerText+' '+card.dataset.keywords).toLowerCase();
-      const show=!q||text.includes(q);
+      const showCat=currentCat==='all'||cat===currentCat;
+      const showQ=!q||text.includes(q);
+      const show=showCat&&showQ;
       card.style.display=show?'':'none';
       if(show)visible++;
     });
     countEl.textContent=visible;
     empty.classList.toggle('show',visible===0);
+  }
+  searchInput.addEventListener('input',applyFilter);
+  document.getElementById('filters').addEventListener('click',e=>{
+    const btn=e.target.closest('.chip');
+    if(!btn)return;
+    document.querySelectorAll('#filters .chip').forEach(c=>c.classList.remove('active'));
+    btn.classList.add('active');
+    currentCat=btn.dataset.cat;
+    applyFilter();
   });
 
   viewBtns.forEach(btn=>{
