@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta name="msvalidate.01" content="733C0CF52C48DCBDD0724B4AB1E679B8" />
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2a3318bc7bae7cd6fe57a38f5379d5b0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI百科 | 免费AI工具实测库</title>
+  <meta name="description" content="AI 常见概念速查：大语言模型、提示词、Agent、RAG、多模态、AIGC、Token、幻觉等，用普通人能听懂的话解释。" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+<style>
+  :root{--sidebar:#fff;--bg:#f5f7fa;--card:#fff;--line:#e4e7ed;--txt:#303133;--sub:#606266;--light:#909399;--accent:#409eff;--accent-light:#ecf5ff;--ok:#67c23a;--ok-bg:#f0f9eb;--warn:#e6a23c;--warn-bg:#fdf6ec;--radius:12px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,sans-serif;background:var(--bg);color:var(--txt);line-height:1.7}
+  a{color:inherit;text-decoration:none}
+  .sidebar{position:fixed;left:0;top:0;width:212px;height:100vh;background:var(--sidebar);border-right:1px solid var(--line);display:flex;flex-direction:column;padding:18px 0;z-index:100;overflow-y:auto}
+  .sidebar::-webkit-scrollbar{width:6px}
+  .sidebar::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
+  .sidebar::-webkit-scrollbar-track{background:transparent}
+  .brand{display:flex;align-items:center;gap:11px;padding:0 14px 20px;font-weight:700;font-size:16px;color:var(--txt)}
+  .brand .logo{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,#409eff,#66b1ff);display:flex;align-items:center;justify-content:center;color:#fff;flex:none;box-shadow:0 5px 12px rgba(64,158,255,.35)}
+  .brand .logo svg{width:19px;height:19px}
+  .nav-item{position:relative;display:flex;align-items:center;gap:12px;padding:11px 20px;margin:2px 12px;border-radius:10px;font-size:14px;color:var(--sub);transition:.18s}
+  .nav-item:hover{background:#f5f7fa;color:var(--txt)}
+  .nav-item.active{background:var(--accent-light);color:var(--accent);font-weight:600}
+  .nav-item.active::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:3px;height:18px;border-radius:3px;background:var(--accent)}
+  .nav-item svg{width:18px;height:18px;opacity:.85}
+  .nav-group{margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+  .nav-label{font-size:12px;color:var(--light);padding:6px 22px;text-transform:uppercase;letter-spacing:.5px}
+  .main{margin-left:212px;min-height:100vh;display:flex;flex-direction:column}
+  .topbar{height:60px;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 24px;position:sticky;top:0;z-index:90}
+  .topbar h1{font-size:18px;font-weight:600}
+  .topbar-actions{display:flex;align-items:center;gap:12px}
+  .btn{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 14px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:13px;color:var(--sub);transition:.18s}
+  .btn:hover{border-color:var(--accent);color:var(--accent);box-shadow:0 2px 8px rgba(64,158,255,.12)}
+  .content{flex:1;padding:24px}
+  .page{max-width:1100px;margin:0 auto}
+  .page-head{margin-bottom:22px}
+  .page-head h2{font-size:24px;font-weight:600}
+  .page-head p{color:var(--sub);font-size:14px;margin-top:8px;line-height:1.7}
+
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;margin:22px 0 30px}
+  .wiki-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;transition:.2s;cursor:pointer}
+  .wiki-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.08);border-color:var(--accent)}
+  .wiki-card h4{font-size:15px;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .wiki-card h4 .icon{width:28px;height:28px;border-radius:8px;background:var(--accent-light);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:14px}
+  .wiki-card p{font-size:13px;color:var(--sub);line-height:1.7;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .wiki-card .tag{display:inline-flex;margin-top:10px;font-size:12px;color:var(--accent);font-weight:600;gap:4px}
+
+  .doc{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;margin-top:24px}
+  .doc h3{font-size:18px;margin:24px 0 10px;padding-top:8px;display:flex;align-items:center;gap:8px}
+  .doc h3:first-of-type{margin-top:0}
+  .doc h3 .icon{width:30px;height:30px;border-radius:8px;background:var(--accent-light);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:15px}
+  .doc p{color:var(--sub);margin:10px 0;font-size:15px}
+  .doc ul{padding-left:22px;color:var(--sub);font-size:15px}
+  .doc li{margin:7px 0}
+  .doc code{background:#f5f7fa;padding:1px 6px;border-radius:5px;font-family:inherit;font-size:13px;color:var(--txt)}
+  .doc strong{color:var(--txt)}
+  .tip{background:var(--ok-bg);border-left:3px solid var(--ok);padding:12px 16px;border-radius:8px;font-size:14px;color:#3f7a1f;margin:14px 0;line-height:1.8}
+  footer{padding:18px 24px;border-top:1px solid var(--line);font-size:12px;color:var(--light);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+  footer a{color:var(--accent)}
+  @media(max-width:900px){.sidebar{transform:translateX(-100%)}.main{margin-left:0}}
+  @media(max-width:640px){.content{padding:16px}.topbar{height:auto;padding:12px 16px}.doc{padding:18px}.card-grid{grid-template-columns:1fr 1fr}}
+</style>
+<div class="sidebar">
+  <div class="brand">
+    <span class="logo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6z"/><circle cx="18" cy="5" r="1.3"/></svg></span>
+    AI 工具管理台
+  </div>
+  <a class="nav-item" href="index.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+    工具站运营
+  </a>
+  <a class="nav-item" href="guide.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+    AI教程
+  </a>
+  <a class="nav-item active" href="ai-wiki.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+    AI百科
+  </a>
+  <div class="nav-group">
+    <div class="nav-label">更多</div>
+    <a class="nav-item" href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>联系支持</a>
+    <a class="nav-item" href="contact.html#support"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>支持本站</a>
+    <a class="nav-item" href="privacy.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>隐私政策</a>
+  </div>
+</div>
+<div class="main">
+  <header class="topbar">
+    <h1>AI百科</h1>
+    <div class="topbar-actions"><a class="btn" href="index.html">← 控制面板</a></div>
+  </header>
+  <main class="content">
+    <div class="page">
+      <div class="page-head">
+        <h2>🧠 AI百科</h2>
+        <p>不懂这些词，看再多 AI 教程也白搭。这里用一句话+一段解释，把常用概念讲清楚。</p>
+      </div>
+
+      <div class="card-grid">
+        <a class="wiki-card" href="#llm">
+          <h4><span class="icon">🗣️</span>大语言模型</h4>
+          <p>能读、能写、能对话的 AI 大脑，比如 ChatGPT、DeepSeek、Kimi。</p>
+          <span class="tag">查看词条 →</span>
+        </a>
+        <a class="wiki-card" href="#prompt">
+          <h4><span class="icon">💬</span>提示词 Prompt</h4>
+          <p>你给 AI 的指令或问题。提示词越清晰，AI 回答越靠谱。</p>
+          <span class="tag">查看词条 →</span>
+        </a>
+        <a class="wiki-card" href="#agent">
+          <h4><span class="icon">🤖</span>AI Agent</h4>
+          <p>能自主调用工具、多步骤完成任务的 AI，比如自动查资料、写报告。</p>
+          <span class="tag">查看词条 →</span>
+        </a>
+        <a class="wiki-card" href="#rag">
+          <h4><span class="icon">🔍</span>RAG</h4>
+          <p>让 AI 先查你的私有资料，再回答，减少胡说八道。</p>
+          <span class="tag">查看词条 →</span>
+        </a>
+        <a class="wiki-card" href="#multimodal">
+          <h4><span class="icon">🎨</span>多模态 AI</h4>
+          <p>同时能看懂文字、图片、语音、视频的 AI。</p>
+          <span class="tag">查看词条 →</span>
+        </a>
+        <a class="wiki-card" href="#aigc">
+          <h4><span class="icon">✍️</span>AIGC</h4>
+          <p>AI 自动生成内容，包括文章、图片、音频、视频、代码。</p>
+          <span class="tag">查看词条 →</span>
+        </a>
+        <a class="wiki-card" href="#token">
+          <h4><span class="icon">🪙</span>Token</h4>
+          <p>AI 计费单位，通常 1 个汉字 ≈ 1 Token，一个英文单词 ≈ 1–2 Token。</p>
+          <span class="tag">查看词条 →</span>
+        </a>
+        <a class="wiki-card" href="#hallucination">
+          <h4><span class="icon">👻</span>AI 幻觉</h4>
+          <p>AI 一本正经地胡说八道，看起来像真的，但事实是错的。</p>
+          <span class="tag">查看词条 →</span>
+        </a>
+        <a class="wiki-card" href="#fine-tuning">
+          <h4><span class="icon">⚙️</span>微调 Fine-tuning</h4>
+          <p>用你自己的数据再训练 AI，让它更懂你的业务。</p>
+          <span class="tag">查看词条 →</span>
+        </a>
+        <a class="wiki-card" href="#api">
+          <h4><span class="icon">🔌</span>API</h4>
+          <p>让程序员把 AI 能力接入自己 App 或网站的接口。</p>
+          <span class="tag">查看词条 →</span>
+        </a>
+      </div>
+
+      <div class="doc">
+        <h3 id="llm"><span class="icon">🗣️</span>大语言模型（LLM）</h3>
+        <p><strong>一句话解释：</strong>能读、能写、能对话的 AI 大脑。</p>
+        <p>大语言模型通过阅读互联网上大量文本学会语言规律，所以你能跟它聊天、让它写文章、翻译、总结、写代码。常见的有 OpenAI 的 GPT 系列、DeepSeek-V3/R1、Kimi、Claude、通义千问、文心一言等。</p>
+        <ul>
+          <li><strong>通用模型</strong>：什么都懂一点，适合日常问答、写作、头脑风暴。</li>
+          <li><strong>推理模型</strong>：擅长数学、代码、复杂分析，比如 DeepSeek-R1、o3-mini。</li>
+          <li><strong>免费版 vs 付费版</strong>：免费版通常有次数或字数限制，付费版更快、更强。</li>
+        </ul>
+
+        <h3 id="prompt"><span class="icon">💬</span>提示词 Prompt</h3>
+        <p><strong>一句话解释：</strong>你给 AI 的指令或问题。</p>
+        <p>提示词不是问得越短越好。想让 AI 给出高质量回答，最好说明背景、角色、格式、约束。例如把「帮我写篇旅游攻略」改成「我是一名预算 3000 元的大学生，计划去重庆玩 3 天，请写一篇包含交通、住宿、美食、避坑的旅行攻略，控制在 800 字以内」，结果会好很多。</p>
+
+        <h3 id="agent"><span class="icon">🤖</span>AI Agent（智能体）</h3>
+        <p><strong>一句话解释：</strong>能自己规划步骤、调用工具的 AI。</p>
+        <p>普通大模型只能一问一答，Agent 可以把复杂任务拆开做：比如「帮我整理本周行业新闻」→ 自动搜索 → 筛选来源 → 总结要点 → 生成文档。常见平台有 Coze、Dify、智谱 AutoGLM、OpenAI Operator。</p>
+
+        <h3 id="rag"><span class="icon">🔍</span>RAG（检索增强生成）</h3>
+        <p><strong>一句话解释：</strong>让 AI 先查资料再回答。</p>
+        <p>大模型的知识有截止日期，也看不到你的私有文件。RAG 先把你的文档切成小段建立索引，回答问题前先检索相关内容，再组织答案。适合企业知识库、客服、论文助手等场景。</p>
+
+        <h3 id="multimodal"><span class="icon">🎨</span>多模态 AI</h3>
+        <p><strong>一句话解释：</strong>同时能看懂文字、图片、音频、视频的 AI。</p>
+        <p>早期 AI 只能处理文字，现在的 GPT-4o、Gemini、通义万相、可灵、剪映等可以「看图说话」「听语音写总结」「文字生成视频」。多模态让 AI 更接近人的感知方式。</p>
+
+        <h3 id="aigc"><span class="icon">✍️</span>AIGC（AI 生成内容）</h3>
+        <p><strong>一句话解释：</strong>用 AI 自动生产内容。</p>
+        <p>包括 AI 写文章（ChatGPT）、画图（Midjourney、通义万相）、配音（Fish Audio）、做视频（可灵、剪映）、写代码（Cursor、通义灵码）。AIGC 不是取代人，而是把重复劳动自动化。</p>
+
+        <h3 id="token"><span class="icon">🪙</span>Token</h3>
+        <p><strong>一句话解释：</strong>AI 计费和计算的基本单位。</p>
+        <p> roughly 1 个汉字 ≈ 1 Token，一个英文单词 ≈ 1–2 Token。你输入的问题和 AI 输出的答案都要算 Token。Token 用得越多，响应越慢、费用越高（付费接口）。</p>
+
+        <h3 id="hallucination"><span class="icon">👻</span>AI 幻觉 Hallucination</h3>
+        <p><strong>一句话解释：</strong>AI 一本正经地胡说八道。</p>
+        <p>AI 会编造不存在的人名、论文、法律条文、历史事件。处理重要信息时，一定要交叉验证，不要直接复制 AI 给的数据。</p>
+        <div class="tip">💡 降幻觉技巧：要求 AI 给出出处、限定回答范围、用 RAG 接入可信资料、让 AI 先说"不确定"而不是硬编。</div>
+
+        <h3 id="fine-tuning"><span class="icon">⚙️</span>微调 Fine-tuning</h3>
+        <p><strong>一句话解释：</strong>用你自己的数据再训练 AI。</p>
+        <p>通用大模型不会特别懂你的行业黑话、产品参数、内部流程。微调就是用几百到几千条你的专属数据继续训练，让模型输出风格、术语、格式都更像你的业务。</p>
+
+        <h3 id="api"><span class="icon">🔌</span>API</h3>
+        <p><strong>一句话解释：</strong>让程序员调用 AI 能力的接口。</p>
+        <p>如果你想在自己的 App、小程序、网站里接入 AI，就需要 API。OpenAI、DeepSeek、硅基流动、百度千帆、阿里百炼等都提供 API，按 Token 用量计费。</p>
+      </div>
+
+    </div>
+  </main>
+  <footer>
+    <span>© 2026 免费 AI 工具实测库 · <a href="privacy.html">隐私政策</a></span>
+    <span id="busuanzi_container_site_pv">本站总访问量 <span id="busuanzi_value_site_pv">—</span> 次</span>
+  </footer>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+</body>
+</html>
