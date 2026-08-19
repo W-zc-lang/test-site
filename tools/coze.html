@@ -14,7 +14,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Coze 扣子 实测 · 智能体 | 免费AI工具实测库</title>
-<meta name="description" content="Coze 扣子（字节跳动）免费实测：适用场景、3步上手方法与避坑提醒。适合：零代码搭客服、资讯播报、角色 bot、工作流。国内版 coze.cn 中文" />
+<meta name="description" content="Coze 扣子（字节跳动）免费实测：适用场景、使用教程与避坑提醒。适合：零代码搭客服、资讯播报、角色 bot、工作流。国内版 coze.cn 中文" />
 <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
 </head>
 <body>
@@ -65,6 +65,11 @@
   .detail li{margin:6px 0;line-height:1.8}
   .detail code{background:#f5f7fa;padding:1px 6px;border-radius:5px;font-family:inherit;font-size:13px;color:var(--txt)}
   .warn{background:var(--warn-bg);border-left:3px solid var(--warn);padding:12px 16px;border-radius:8px;font-size:13px;color:var(--warn);margin-top:16px;line-height:1.8}
+  .detail ul{padding-left:20px;color:var(--sub);font-size:14px}
+  .detail ul li{margin:6px 0;line-height:1.8}
+  .tips{background:var(--accent-light);border-left:3px solid var(--accent);padding:12px 16px;border-radius:8px;font-size:13px;color:var(--sub);margin-top:16px;line-height:1.8}
+  .tips b{color:var(--accent)}
+
   footer{padding:18px 24px;border-top:1px solid var(--line);font-size:12px;color:var(--light);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
   footer a{color:var(--accent)}
   @media(max-width:900px){.sidebar{transform:translateX(-100%)}.main{margin-left:0}}
@@ -146,9 +151,15 @@
       <div class="detail">
         <p class="offlink"><a href="https://www.coze.cn/" target="_blank" rel="noopener">🔗 前往官网 / 开始使用</a></p>
         <p class="desc">适合：零代码搭客服、资讯播报、角色 bot、工作流。国内版 coze.cn 中文友好。</p>
-        <h4>3 步上手</h4>
-        <ol><li>打开 coze.cn，点「创建 Bot」，填人设与回复逻辑。</li><li>加插件（搜索/绘图/爬虫）和工作流串起多步任务。</li><li>发布到豆包/飞书/微信试跑。</li></ol>
-        <div class="warn">⚠ 免费版有调用上限；工作流复杂时先画流程图再搭，省调试时间。</div>
+        <h4>使用教程 · 上手步骤</h4>
+        <ol><li>打开 coze.cn，点「创建 Bot」，填人设与回复逻辑。</li><li>加插件（搜索/绘图/爬虫）和工作流串起多步任务。</li><li>发布到豆包/飞书/微信试跑。</li></ol><div class="tips">💡 <b>进阶玩法</b>
+<ul>
+<li>扣子可视化搭 Bot，先写清楚人设与开场白，再接插件 / 知识库，复杂度循序渐进。</li>
+<li>把大任务拆成小步骤，让 AI 一步步迭代，比一次要完整答案更稳。</li>
+<li>先吃透免费额度 / 免费模型，确认顺手再考虑付费升级。</li>
+</ul>
+</div>
+<div class="warn">⚠ 免费版有调用上限；工作流复杂时先画流程图再搭，省调试时间。</div>
       </div>
       <p style="color:var(--sub);font-size:13px;margin-top:18px">还想看更多智能体工具？<a href="../ai-agent.html" style="color:var(--accent);font-weight:600">返回分类页 →</a></p>
     </div>
