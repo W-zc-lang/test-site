@@ -74,6 +74,17 @@
   footer a{color:var(--accent)}
   @media(max-width:900px){.sidebar{transform:translateX(-100%)}.main{margin-left:0}}
   @media(max-width:640px){.content{padding:16px}.topbar{height:auto;padding:12px 16px}}
+
+  .aff-block{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 24px;margin-top:24px}
+  .aff-block h3{font-size:17px;margin-bottom:8px}
+  .aff-tip{color:var(--sub);font-size:14px;margin:6px 0 14px}
+  .aff-btns{display:flex;gap:12px;flex-wrap:wrap}
+  .mall-btn{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 18px;border-radius:10px;font-size:14px;font-weight:600;color:#fff;cursor:pointer;transition:.18s}
+  .mall-btn.jd{background:linear-gradient(135deg,#e1251b,#ff5a4d)}
+  .mall-btn.tb{background:linear-gradient(135deg,#ff5000,#ff7a3d)}
+  .mall-btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,.15)}
+  .aff-note{color:var(--light);font-size:12px;margin-top:12px}
+  .aff-note code{background:#f5f7fa;padding:1px 5px;border-radius:4px}
 </style>
   <div class="sidebar">
       <div class="brand">
@@ -164,6 +175,16 @@
       <p style="color:var(--sub);font-size:13px;margin-top:18px">还想看更多办公效率工具？<a href="../ai-office.html" style="color:var(--accent);font-weight:600">返回分类页 →</a></p>
     </div>
   </main>
+    <section class="aff-block">
+    <h3>🛒 相关好物 · 联盟入口</h3>
+    <p class="aff-tip">觉得本工具好用？点下面入口到京东 / 淘宝看看相关硬件、书籍或会员，价格一样，还能顺手支持本站（不额外花钱）。</p>
+    <div class="aff-btns">
+      <a class="mall-btn jd" data-kw="Gemini" href="javascript:void(0)">🛍️ 京东搜「Gemini」</a>
+      <a class="mall-btn tb" data-kw="Gemini" href="javascript:void(0)">🐱 淘宝搜「Gemini」</a>
+    </div>
+    <p class="aff-note">注：链接带本站推广 ID，下单即计入佣金；PID 在 <code>affiliate.js</code> 中配置。</p>
+  </section>
+
   <footer>
     <span>免费AI工具实测库 · 工具政策以官方为准</span>
     <span><a href="../index.html">控制面板</a> · <a href="../privacy.html">隐私政策</a></span>
@@ -171,5 +192,6 @@
   </footer>
 </div>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script src="../affiliate.js"></script>
 </body>
 </html>
