@@ -25,7 +25,10 @@
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6}
   a{color:inherit;text-decoration:none}
-  .sidebar{position:fixed;left:0;top:0;width:212px;height:100vh;background:var(--sidebar);border-right:1px solid var(--line);display:flex;flex-direction:column;padding:18px 0;z-index:100}
+  .sidebar{position:fixed;left:0;top:0;width:212px;height:100vh;background:var(--sidebar);border-right:1px solid var(--line);display:flex;flex-direction:column;padding:18px 0;z-index:100;overflow-y:auto}
+  .sidebar::-webkit-scrollbar{width:6px}
+  .sidebar::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
+  .sidebar::-webkit-scrollbar-track{background:transparent}
   .brand{display:flex;align-items:center;gap:11px;padding:0 14px 20px;font-weight:700;font-size:16px;color:var(--txt)}
   .brand .logo{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,#409eff,#66b1ff);display:flex;align-items:center;justify-content:center;color:#fff;flex:none;box-shadow:0 5px 12px rgba(64,158,255,.35)}
   .brand .logo svg{width:19px;height:19px}
