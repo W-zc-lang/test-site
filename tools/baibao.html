@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta name="msvalidate.01" content="733C0CF52C48DCBDD0724B4AB1E679B8" />
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2a3318bc7bae7cd6fe57a38f5379d5b0";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>baibao 实测 · 办公效率 | 免费AI工具实测库</title>
+<meta name="description" content="baibao（）免费实测：适用场景、3步上手方法与避坑提醒。适合：图片处理、音视频剪辑、单位换算、文案辅助、截图工具。微信小程序载体，免安装" />
+<link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+<style>
+  :root{--sidebar:#fff;--bg:#f5f7fa;--card:#fff;--line:#e4e7ed;--txt:#303133;--sub:#606266;--light:#909399;--accent:#409eff;--accent-light:#ecf5ff;--ok:#67c23a;--ok-bg:#f0f9eb;--warn:#e6a23c;--warn-bg:#fdf6ec;--danger:#f56c6c;--danger-bg:#fef0f0;--radius:12px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6}
+  a{color:inherit;text-decoration:none}
+  .sidebar{position:fixed;left:0;top:0;width:212px;height:100vh;background:var(--sidebar);border-right:1px solid var(--line);display:flex;flex-direction:column;padding:18px 0;z-index:100}
+  .brand{display:flex;align-items:center;gap:11px;padding:0 14px 20px;font-weight:700;font-size:16px;color:var(--txt)}
+  .brand .logo{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,#409eff,#66b1ff);display:flex;align-items:center;justify-content:center;color:#fff;flex:none;box-shadow:0 5px 12px rgba(64,158,255,.35)}
+  .brand .logo svg{width:19px;height:19px}
+  .nav-item{position:relative;display:flex;align-items:center;gap:12px;padding:11px 20px;margin:2px 12px;border-radius:10px;font-size:14px;color:var(--sub);transition:.18s}
+  .nav-item:hover{background:#f5f7fa;color:var(--txt)}
+  .nav-item.active{background:var(--accent-light);color:var(--accent);font-weight:600}
+  .nav-item.active::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:3px;height:18px;border-radius:3px;background:var(--accent)}
+  .nav-item svg{width:18px;height:18px;opacity:.85}
+  .nav-group{margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+  .nav-label{font-size:12px;color:var(--light);padding:6px 22px;text-transform:uppercase;letter-spacing:.5px}
+  .main{margin-left:212px;min-height:100vh;display:flex;flex-direction:column}
+  .topbar{height:60px;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 24px;position:sticky;top:0;z-index:90}
+  .topbar h1{font-size:18px;font-weight:600}
+  .topbar-actions{display:flex;align-items:center;gap:12px}
+  .btn{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 14px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:13px;color:var(--sub);transition:.18s}
+  .btn:hover{border-color:var(--accent);color:var(--accent);box-shadow:0 2px 8px rgba(64,158,255,.12)}
+  .content{flex:1;padding:24px}
+  .page{max-width:780px;margin:0 auto}
+  .page-head{margin-bottom:22px}
+  .page-head .crumb{font-size:13px;color:var(--light);margin-bottom:10px}
+  .page-head .crumb a{color:var(--accent)}
+  .page-head h2{font-size:24px;font-weight:600;display:flex;align-items:center;gap:12px}
+  .page-head .sub{color:var(--sub);font-size:14px;margin-top:8px;line-height:1.7}
+  .tag{font-size:11px;padding:3px 9px;border-radius:6px;font-weight:600;white-space:nowrap}
+  .tag.free{background:var(--ok-bg);color:var(--ok)}
+  .tag.tool{background:var(--danger-bg);color:var(--danger)}
+  .tag.limit{background:var(--warn-bg);color:var(--warn)}
+  .detail{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+  .tc-badge{width:46px;height:46px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:20px;color:#fff;flex:none;box-shadow:0 4px 10px rgba(0,0,0,.12)}
+  .offlink{margin:18px 0}
+  .offlink a{display:inline-block;background:var(--accent-light);color:var(--accent);border:1px solid var(--accent-light);border-radius:8px;padding:8px 16px;font-size:14px;font-weight:600;transition:.15s}
+  .offlink a:hover{background:var(--accent);color:#fff}
+  .detail p.desc{font-size:15px;color:var(--sub);margin:14px 0;line-height:1.8}
+  .detail h4{font-size:13px;color:var(--accent);margin:18px 0 8px;letter-spacing:.5px}
+  .detail ol{padding-left:20px;color:var(--sub);font-size:14px}
+  .detail li{margin:6px 0;line-height:1.8}
+  .detail code{background:#f5f7fa;padding:1px 6px;border-radius:5px;font-family:inherit;font-size:13px;color:var(--txt)}
+  .warn{background:var(--warn-bg);border-left:3px solid var(--warn);padding:12px 16px;border-radius:8px;font-size:13px;color:var(--warn);margin-top:16px;line-height:1.8}
+  footer{padding:18px 24px;border-top:1px solid var(--line);font-size:12px;color:var(--light);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+  footer a{color:var(--accent)}
+  @media(max-width:900px){.sidebar{transform:translateX(-100%)}.main{margin-left:0}}
+  @media(max-width:640px){.content{padding:16px}.topbar{height:auto;padding:12px 16px}}
+</style>
+  <div class="sidebar">
+      <div class="brand">
+    <span class="logo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6z"/><circle cx="18" cy="5" r="1.3"/></svg></span>
+    AI 工具管理台
+  </div>
+  <a class="nav-item" href="index.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+    控制面板
+  </a>
+  <a class="nav-item" href="ai-writing.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+    写作 / 对话
+  </a>
+  <a class="nav-item" href="ai-image-video.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+    图像 / 视频
+  </a>
+  <a class="nav-item active" href="ai-office.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+    办公效率
+  </a>
+  <a class="nav-item" href="ai-audio.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg>
+    音频 / 配音
+  </a>
+  <a class="nav-item" href="ai-coding.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+    编程 / 代码
+  </a>
+  <a class="nav-item" href="ai-search.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+    搜索 / 学习
+  </a>
+  <a class="nav-item" href="ai-chat.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    对话聊天
+  </a>
+  <a class="nav-item" href="ai-design.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="8" cy="10" r="2"/><path d="M14 2l3 3-3 3"/><path d="M3 21l7-7"/></svg>
+    AI 设计
+  </a>
+  <a class="nav-item" href="ai-browser.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><circle cx="8" cy="6.5" r="1"/></svg>
+    AI 浏览器
+  </a>
+  <a class="nav-item" href="ai-agent.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9h.01M15 9h.01M9 15h6"/></svg>
+    智能体
+  </a>
+  <a class="nav-item" href="ai-platform.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12A10 10 0 1 1 12 2v10z"/><path d="M12 2a10 10 0 0 1 10 10h-10z"/></svg>
+    开发平台
+  </a>
+  <div class="nav-group">
+    <div class="nav-label">更多</div>
+    <a class="nav-item" href="about.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>关于面板</a>
+    <a class="nav-item" href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>联系支持</a>
+    <a class="nav-item" href="contact.html#support"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>支持本站</a>
+    <a class="nav-item" href="privacy.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>隐私政策</a>
+  </div>
+</div>
+<div class="main">
+  <header class="topbar">
+    <h1>baibao 实测</h1>
+    <div class="topbar-actions"><a class="btn" href="../ai-office.html">← 返回办公效率</a></div>
+  </header>
+  <main class="content">
+    <div class="page">
+      <div class="page-head">
+        <div class="crumb"><a href="../index.html">控制面板</a> / <a href="../ai-office.html">办公效率</a> / baibao</div>
+        <h2><span class="tc-badge" style="background:linear-gradient(135deg,#15c2c2,#4fe0e0)">酷</span>baibao <small style="font-size:13px;color:var(--light);font-weight:400;margin-left:4px"></small> <span class="tag free">免费</span></h2>
+        <p class="sub">本页为「免费AI工具实测库」对 baibao 的实测整理，含适用场景、上手步骤与避坑。工具政策以官方为准。</p>
+      </div>
+      <div class="detail">
+        <p class="offlink"><span style="font-size:13px;color:var(--light)">📱 暂无独立官网，通常在对应 App / 小程序内使用</span></p>
+        <p class="desc">适合：图片处理、音视频剪辑、单位换算、文案辅助、截图工具。微信小程序载体，免安装、不占内存、大量功能永久免费、导出不带水印。</p>
+        <h4>3 步上手</h4>
+        <ol><li>微信顶部搜索「酷酷百宝盒」，进入官方小程序，无需注册。</li><li>首页按分类找工具：图片处理 / 音视频 / 办公 / 测算。</li><li>上传素材或输入内容，设参数，云端处理完一键导出，文件可直接微信转发。</li></ol>
+        <div class="warn">⚠ 功能很多，别贪多；按当下需求取用最顺手的一两个，避免信息过载。</div>
+      </div>
+      <p style="color:var(--sub);font-size:13px;margin-top:18px">还想看更多办公效率工具？<a href="../ai-office.html" style="color:var(--accent);font-weight:600">返回分类页 →</a></p>
+    </div>
+  </main>
+  <footer>
+    <span>免费AI工具实测库 · 工具政策以官方为准</span>
+    <span><a href="../index.html">控制面板</a> · <a href="../privacy.html">隐私政策</a></span>
+      <span class="vc">🚀 本站访问 <span id="busuanzi_value_site_pv"></span> 次 · 访客 <span id="busuanzi_value_site_uv"></span> 人</span>
+  </footer>
+</div>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</body>
+</html>

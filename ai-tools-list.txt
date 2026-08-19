@@ -1,90 +1,73 @@
+免费AI工具实测库 · 完整工具清单（共 47 款，全部免费/免费额度）
+更新：2026-08-19
 ========================================
-2026 免费 AI 工具清单（实测库整理）
-更新：2026-08-18（15 个工具 / 6 类）
-========================================
 
-【写作 / 对话类】
-1. 豆包（字节跳动）
-   - 官网：https://www.doubao.com/
-   - 适合：小红书文案、口播脚本、简历优化
-   - 避坑：输出偏营销腔，发布前手动润色降机器感
+【写作/对话】
+1. 豆包（字节跳动） — https://www.doubao.com/
+2. deepseek（） — https://chat.deepseek.com/
+3. Kimi（月之暗面） — https://www.kimi.com/
+4. Claude（Anthropic） — https://claude.ai/
+5. 文心一言（百度） — https://yiyan.baidu.com/
+6. 通义千问（阿里） — https://tongyi.aliyun.com/qianwen/
 
-2. DeepSeek
-   - 官网：https://chat.deepseek.com/
-   - 适合：脑暴选题、结构化长文、代码辅助
-   - 避坑：高峰期偶尔繁忙，可错峰使用
+【图像/视频】
+7. 通义万相（阿里） — https://tongyi.aliyun.com/wanxiang/creation
+8. bing（） — https://www.bing.com/images/create
+9. 剪映（字节） — https://www.capcut.cn/
+10. 即梦 AI（字节跳动） — https://jimeng.jianying.com/
+11. 可灵 AI（快手） — https://klingai.kuaishou.com/
+12. Midjourney（Midjourney） — https://www.midjourney.com/
 
-3. Kimi（月之暗面）
-   - 官网：https://www.kimi.com/
-   - 适合：读长文档、列大纲、深度内容
-   - 避坑：超长文档分段投喂，关键数据核对出处
+【办公效率】
+13. Gemini（谷歌） — https://gemini.google.com/
+14. baibao（）
+15. 百度文库 AI（百度） — https://wenku.baidu.com/
+16. WPS AI（金山） — https://www.wps.cn/
 
-4. Claude（Anthropic）
-   - 官网：https://claude.ai/
-   - 适合：万字文档总结、合同梳理、长文写作
-   - 避坑：国内访问需网络工具；勿直接照搬商用
+【音频/配音】
+17. 腾讯智影（腾讯） — https://zenvideo.qq.com/
+18. fish（） — https://fish.audio/
+19. TTSMaker（免费 TTS） — https://ttsmaker.cn/
+20. ElevenLabs（ElevenLabs） — https://elevenlabs.io/
 
-【图像 / 视频类】
-5. 通义万相（阿里）
-   - 官网：https://tongyi.aliyun.com/wanxiang/creation
-   - 适合：封面、头像、海报、配图
-   - 避坑：复杂构图多轮微调关键词
+【编程/代码】
+21. 通义灵码（阿里） — https://lingma.aliyun.com/
+22. CodeGeeX（智谱） — https://codegeex.cn/
+23. Trae（字节跳动） — https://www.trae.com.cn/
+24. Cursor（Anysphere） — https://www.cursor.com/
 
-6. Bing Image Creator（DALL·E 3）
-   - 官网：https://www.bing.com/images/create
-   - 适合：配图、插画、创意素材
-   - 避坑：国内访问需网络工具
+【搜索/学习】
+25. metaso（） — https://metaso.cn/
+26. 纳米AI搜索（360） — https://www.n.cn/
+27. Perplexity（Perplexity） — https://www.perplexity.ai/
+28. 百度 AI 搜索（百度） — https://chat.baidu.com/
 
-7. 剪映（字节跳动）
-   - 官网：https://www.capcut.cn/
-   - 适合：图文成片、AI 配音、自动字幕
-   - 避坑：部分高级素材 / 特效需会员
+【对话聊天】
+29. 腾讯元宝（腾讯） — https://yuanbao.tencent.com/
+30. 智谱清言（智谱 AI） — https://chatglm.cn/
+31. 讯飞星火（科大讯飞） — https://xinghuo.xfyun.cn/
+32. MiniMax（MiniMax） — https://hailuoai.com/chat
 
-【办公效率类】
-8. Gemini（谷歌）
-   - 官网：https://gemini.google.com/
-   - 适合：多模态解析、联网搜索、长文总结
-   - 避坑：国内访问需网络工具
+【AI设计】
+33. 稿定 AI 设计（稿定科技） — https://www.gaoding.com/ai
+34. 创客贴 AI（万兴/创客贴） — https://www.chuangkit.com/
+35. Canva 可画（Canva） — https://www.canva.cn/
+36. 美图设计室（美图） — https://design.meitu.com/
 
-9. 酷酷百宝盒（微信小程序）
-   - 入口：微信搜索「酷酷百宝盒」（暂无官网）
-   - 适合：图片处理、音视频、办公测算
-   - 避坑：功能多，按需取用
+【AI浏览器】
+37. 360AI 浏览器（360） — https://browser.360.cn/
+38. QQ 浏览器 AI（腾讯） — https://browser.qq.com/
+39. 夸克 AI（阿里巴巴） — https://www.quark.cn/
 
-【音频 / 配音类】
-10. 腾讯智影（腾讯）
-    - 官网：https://zenvideo.qq.com/
-    - 适合：视频配音、数字人播报、智能字幕
-    - 避坑：高级数字人需消耗额度
+【智能体】
+40. Coze 扣子（字节跳动） — https://www.coze.cn/
+41. 腾讯元器（腾讯） — https://yuanqi.tencent.com/
+42. 文心智能体（百度） — https://agents.baidu.com/
+43. Dify（Dify） — https://dify.ai/
 
-11. Fish Audio
-    - 官网：https://fish.audio/
-    - 适合：音色克隆、文字转语音、有声内容
-    - 避坑：免费额度有限，商用需授权
+【开发平台】
+44. 阿里云百炼（阿里云） — https://bailian.console.aliyun.com/
+45. 硅基流动（SiliconFlow） — https://siliconflow.cn/
+46. 智谱开放平台（智谱 AI） — https://open.bigmodel.cn/
+47. 百度千帆（百度） — https://qianfan.cloud.baidu.com/
 
-【编程 / 代码类】
-12. 通义灵码（阿里）
-    - 官网：https://lingma.aliyun.com/
-    - 适合：代码补全、注释生成、bug 排查
-    - 避坑：需装在 VS Code / JetBrains IDE
-
-13. CodeGeeX（智谱 AI）
-    - 官网：https://codegeex.cn/
-    - 适合：代码生成、中英互译、单元测试
-    - 避坑：复杂逻辑需人工校验
-
-【搜索 / 学习类】
-14. 秘塔AI搜索
-    - 官网：https://metaso.cn/
-    - 适合：无广告搜索、整理脑图、读论文
-    - 避坑：深度回答稍慢
-
-15. 纳米AI搜索（360）
-    - 官网：https://www.n.cn/
-    - 适合：多模型对比回答、长文总结
-    - 避坑：回答内容需自己判断真伪
-
-========================================
-提示：免费额度与政策可能调整，以各官方为准。
-商用素材请注意版权与平台访问规则。
-========================================
